@@ -17,7 +17,7 @@ namespace FrostFight
 		{
 			base.ClientJoined( cl );
 
-			var player = new Player();
+			var player = new FrostPlayer();
 			cl.Pawn = player;
 
 			player.Respawn();

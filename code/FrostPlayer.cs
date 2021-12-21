@@ -3,12 +3,12 @@ using Sandbox;
 
 namespace FrostFight
 {
-	public partial class Player : Sandbox.Player
+	public partial class FrostPlayer : Player
 	{
 		public bool IsFreezer { get; private set; } = false;
 		public bool IsFrozen { get; private set; } = false;
 
-		public Player()
+		public FrostPlayer()
 		{
 			Inventory = new BaseInventory( this );
 		}
@@ -32,9 +32,26 @@ namespace FrostFight
 			base.Respawn();
 		}
 
+		public override void Simulate( Client cl )
+		{
+			base.Simulate( cl );
+
+			if ( Input.ActiveChild != null )
+			{
+				ActiveChild = Input.ActiveChild;
+			}
+
+			if ( LifeState != LifeState.Alive )
+				return;
+
+			TickPlayerUse();
+			SimulateActiveChild( cl, ActiveChild );
+		}
+
 		private void SetLoadout()
 		{
 			Inventory.DeleteContents();
+
 			Inventory.Add( new FreezeGun(), true );
 		}
 
