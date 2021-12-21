@@ -98,6 +98,15 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "muzzle"
+						parent_bone = "hold_R"
+						relative_origin = [ 15.217676, 0.139071, 5.127579 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 			{
