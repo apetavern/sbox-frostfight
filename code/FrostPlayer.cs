@@ -52,7 +52,10 @@ namespace FrostFight
 		{
 			Inventory.DeleteContents();
 
-			Inventory.Add( new FreezeGun(), true );
+			if ( IsFreezer )
+				Inventory.Add( new FreezeGun(), true );
+			else
+				Inventory.Add( new IcePick(), true );
 		}
 
 	}
