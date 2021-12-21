@@ -88,7 +88,7 @@
 				m_networkMode = "ClientPredicted"
 				m_sNote = ""
 				m_tagSpans = [  ]
-				m_sequenceName = "freezegun_viewmodel"
+				m_sequenceName = "freezegun_idle"
 				m_playbackSpeed = 1.0
 				m_bLoop = true
 			}

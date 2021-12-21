@@ -89,7 +89,7 @@
 				[
 					{
 						_class = "AnimFile"
-						name = "freezegun_viewmodel"
+						name = "freezegun_idle"
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -103,8 +103,8 @@
 						disable_compression = false
 						source_filename = "models/weapons/freezegun/freezegun_viewmodel.fbx"
 						start_frame = 9
-						end_frame = 13
-						framerate = -1.0
+						end_frame = 19
+						framerate = 2.0
 						take = 0
 						reverse = false
 					},
@@ -125,7 +125,7 @@
 						source_filename = "models/weapons/freezegun/freezegun_viewmodel.fbx"
 						start_frame = 19
 						end_frame = 31
-						framerate = 10.0
+						framerate = -1.0
 						take = 0
 						reverse = false
 					},
