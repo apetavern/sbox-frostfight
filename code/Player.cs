@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using FrostFight.Weapons;
+using Sandbox;
 
 namespace FrostFight
 {
@@ -19,14 +20,22 @@ namespace FrostFight
 			// Set to new PlayerController() if/when we decide to use it.
 			Controller = new WalkController();
 			Animator = new StandardPlayerAnimator();
-			Camera = new ThirdPersonCamera();
+			Camera = new FirstPersonCamera();
 
 			EnableAllCollisions = true;
 			EnableDrawing = true;
 			EnableHideInFirstPerson = true;
 			EnableShadowInFirstPerson = true;
 
+			SetLoadout();
+
 			base.Respawn();
+		}
+
+		private void SetLoadout()
+		{
+			Inventory.DeleteContents();
+			Inventory.Add( new FreezeGun(), true );
 		}
 
 	}
