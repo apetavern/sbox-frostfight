@@ -118,6 +118,14 @@ namespace FrostFight
 		}
 
 		[AdminCmd]
+		public static void Freeze()
+		{
+			var player = ConsoleSystem.Caller.Pawn as FrostPlayer;
+
+			player?.AddFreeze( 100, null );
+		}
+
+		[AdminCmd]
 		public static void GiveGun()
 		{
 			var player = ConsoleSystem.Caller.Pawn;
