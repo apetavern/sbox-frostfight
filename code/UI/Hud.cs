@@ -10,6 +10,7 @@ namespace FrostFight.UI
 		{
 			if ( IsClient )
 			{
+				RootPanel.AddChild<Crosshair>();
 				RootPanel.AddChild<WeaponSwitcher>();
 				RootPanel.AddChild<FreezeLevel>();
 

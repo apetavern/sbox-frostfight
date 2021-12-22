@@ -9,4 +9,10 @@ FreezeLevel {
     background-color: #00f;
     align-items: center;
     justify-content: center;
+    background-color: rgba( $neutral, 0.5 );
+    border-radius: 10px;
+
+    .inner {
+        background-color: rgba( $accent, 0.5 );
+    }
 }
