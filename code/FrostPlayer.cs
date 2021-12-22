@@ -5,8 +5,8 @@ namespace FrostFight
 {
 	public partial class FrostPlayer : Player
 	{
-		public bool IsFreezer { get; private set; } = false;
-		public bool IsFrozen { get; private set; } = false;
+		[Net] public bool IsFreezer { get; private set; } = false;
+		[Net] public bool IsFrozen { get; private set; } = false;
 
 		public FrostPlayer()
 		{
