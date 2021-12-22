@@ -16,11 +16,13 @@ namespace FrostFight
 		public enum Teams
 		{
 			Freezers,
-			Runners
+			Runners,
+			None
 		}
 
 		[Net] public GameState State { get; set; }
 		[Net] public IList<FrostPlayer> Players { get; set; }
+		[Net] public IList<FrostPlayer> Spectators { get; set; }
 		[Net] public float WaitingTimer { get; set; } = -1;
 		[Net] public float PlayingTimer { get; set; } = -1;
 		[Net] public Teams WinningTeam { get; set; }
@@ -75,7 +77,7 @@ namespace FrostFight
 
 			// Check if all Non-Freezers are Frozen.
 			var winConditionMet = true;
-			foreach ( FrostPlayer player in Players )
+			foreach ( var player in Players )
 			{
 				if ( player.IsFreezer ) continue;
 
@@ -88,13 +90,18 @@ namespace FrostFight
 			{
 				WinningTeam = Teams.Freezers;
 				ChangeState( GameState.GameOver );
+				return;
 			}
 
 			if ( PlayingTimer <= 0 )
 			{
 				WinningTeam = Teams.Runners;
 				ChangeState( GameState.GameOver );
+				return;
 			}
+
+			CheckGameStillValid();
+
 		}
 
 		private void TickGameOver()
@@ -114,7 +121,7 @@ namespace FrostFight
 			var freezersCount = MathX.CeilToInt( Players.Count * 0.15f );
 			var playersCount = Players.Count;
 
-			foreach ( FrostPlayer player in Players )
+			foreach ( var player in Players )
 			{
 				var selectionChance = (float)freezersCount / playersCount;
 				var rand = Rand.Float( 0, 1 );
@@ -127,6 +134,26 @@ namespace FrostFight
 
 				player.Respawn();
 				playersCount--;
+			}
+		}
+
+		private void CheckGameStillValid()
+		{
+			var freezerCount = 0;
+			var runnerCount = 0;
+
+			foreach ( var player in Players )
+			{
+				if ( player.IsFreezer )
+					freezerCount++;
+				else
+					runnerCount++;
+			}
+
+			if ( freezerCount == 0 || runnerCount == 0 )
+			{
+				WinningTeam = Teams.None;
+				ChangeState( GameState.GameOver );
 			}
 		}
 	}
