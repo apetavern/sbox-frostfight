@@ -9,6 +9,7 @@ namespace FrostFight
 		public const float MaxFreezeAmount = 100;
 		[Net] public bool IsFreezer { get; set; } = false;
 		[Net] public float CurrentFreezeAmount { get; private set; }
+		[Net] public float Stamina { get; set; } = 100;
 		public IceBlock IceBlock { get; set; }
 		public bool IsFrozen => CurrentFreezeAmount >= MaxFreezeAmount;
 
