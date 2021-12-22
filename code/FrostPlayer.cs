@@ -1,4 +1,5 @@
-﻿using FrostFight.Weapons;
+﻿using FrostFight.UI.Elements;
+using FrostFight.Weapons;
 using Sandbox;
 
 namespace FrostFight
@@ -63,8 +64,10 @@ namespace FrostFight
 				DebugOverlay.Text( Position + Vector3.Up * 90f, $"Frozen amount: {CurrentFreezeAmount}" );
 		}
 
-		public void AddFreeze( float amount )
+		public void AddFreeze( float amount, Entity attacker )
 		{
+			CreateHitmarker( To.Single( attacker ) );
+
 			CurrentFreezeAmount += amount;
 			CurrentFreezeAmount = CurrentFreezeAmount.Clamp( 0, MaxFreezeAmount );
 
@@ -93,6 +96,12 @@ namespace FrostFight
 				Inventory.Add( new FreezeGun(), true );
 			else
 				Inventory.Add( new IcePick(), true );
+		}
+
+		[ClientRpc]
+		public static void CreateHitmarker()
+		{
+			HitmarkerContainer.OnHit();
 		}
 
 		[AdminCmd]

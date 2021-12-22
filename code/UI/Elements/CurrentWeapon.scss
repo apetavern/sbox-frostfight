@@ -1,37 +1,30 @@
 ﻿@import "/Code/UI/_Common.scss";
 
-weaponswitcher {
+currentweapon {
     position: absolute;
     bottom: 50px;
     right: 50px;
-    width: 300px;
-    flex-direction: column;
-}
-
-weaponelement {
-    margin: 5px;
-    width: 100%;
+    width: 275px;
     height: 100px;
     background-color: rgba( $neutral, 0.5 );
     backdrop-filter: $backdrop-filter;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    padding: 5px;
-    border-radius: 10px;
+    transform: translate( -50% ) skewX( -10deg );
+    border: 4px solid rgba( white, 0.2 );
 
-    &.active {
-        background-color: rgba( $accent, 0.5 );
-
-        .weapon-icon {
-            transform: scale( 1.2 ) rotate(-5deg);
-            box-shadow: 0 0 10px rgba( $accent, 0.25 );
-        }
+    .weapon-icon {
+        transform: scale( 1.2 ) skewX( 10deg );
     }
 
     .weapon-name {
+        font-size: 24px;
         flex-grow: 1;
         text-align: center;
+        position: absolute;
+        left: 64px;
+        right: 0;
     }
 
     .weapon-icon {
@@ -39,7 +32,6 @@ weaponelement {
         aspect-ratio: 1;
         background-size: cover;
         background-position: center;
-        margin-right: 8px;
         transition: transform 150ms ease;
     }
 }

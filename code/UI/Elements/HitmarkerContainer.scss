@@ -1,0 +1,31 @@
+﻿@import "/Code/UI/_Common.scss";
+
+HitmarkerContainer {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    left: 50%;
+    top: 50%;
+    transform: translate( -50% -50% );
+}
+
+Hitmarker {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    background-image: url( /textures/ui/hitmarker.png );
+    background-size: cover;
+    background-position: center;
+    transform: translate( 0 0 );
+    transition: all 150ms ease;
+
+    &:intro {
+        opacity: 0;
+        transform: scale( 2.0 );
+    }
+
+    &:outro {
+        opacity: 0;
+        transform: scale( 0.5 );
+    }
+}
