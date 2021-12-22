@@ -6,7 +6,7 @@ namespace FrostFight.Weapons
 	public partial class IcePick : BaseWeapon
 	{
 		public override string ViewModelPath => "models/weapons/pickaxe/pickaxe_view.vmdl";
-		public override float PrimaryRate => 0.6f;
+		public override float PrimaryRate => 1.2f;
 
 		public override void Spawn()
 		{
