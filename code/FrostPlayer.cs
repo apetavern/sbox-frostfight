@@ -8,8 +8,7 @@ namespace FrostFight
 		public const float MaxFreezeAmount = 100;
 		[Net] public bool IsFreezer { get; private set; } = true;
 		[Net] public float CurrentFreezeAmount { get; private set; }
-		public ModelEntity IceBlock { get; set; }
-
+		public IceBlock IceBlock { get; set; }
 		public bool IsFrozen => CurrentFreezeAmount >= MaxFreezeAmount;
 
 		public FrostPlayer()
@@ -21,7 +20,6 @@ namespace FrostFight
 		{
 			SetModel( "models/citizen/citizen.vmdl" );
 
-			// Set to new PlayerController() if/when we decide to use it.
 			Controller = new PlayerController();
 			Animator = new StandardPlayerAnimator();
 			Camera = new FirstPersonCamera();
@@ -38,10 +36,17 @@ namespace FrostFight
 			base.Respawn();
 		}
 
+		public void OnDisconnect()
+		{
+			IceBlock?.Delete();
+		}
+
 		public override void Simulate( Client cl )
 		{
-			if ( !IsFrozen )
-				base.Simulate( cl );
+			if ( IsFrozen )
+				return;
+
+			base.Simulate( cl );
 
 			if ( Input.ActiveChild != null )
 			{
@@ -55,7 +60,7 @@ namespace FrostFight
 			SimulateActiveChild( cl, ActiveChild );
 
 			if ( IsServer )
-				DebugOverlay.Text( Position + Vector3.Up * 80f, $"Frozen amount: {CurrentFreezeAmount}" );
+				DebugOverlay.Text( Position + Vector3.Up * 90f, $"Frozen amount: {CurrentFreezeAmount}" );
 		}
 
 		public void AddFreeze( float amount )
@@ -67,10 +72,17 @@ namespace FrostFight
 
 			if ( CurrentFreezeAmount >= MaxFreezeAmount && !IceBlock.IsValid() )
 			{
-				// TODO: Turn this into it's own entity with health, so that players can destroy it and release this player.
-				IceBlock = new ModelEntity( "models/objects/iceblock/iceblock.vmdl" );
+				IceBlock = new();
 				IceBlock.Position = Position;
+				IceBlock.Owner = this;
 			}
+		}
+
+		public void ClearFreeze()
+		{
+			CurrentFreezeAmount = 0;
+			(GetActiveController() as PlayerController)?.ScaleMovementSpeedsByFreeze( CurrentFreezeAmount );
+			IceBlock = null;
 		}
 
 		private void SetLoadout()
@@ -83,5 +95,22 @@ namespace FrostFight
 				Inventory.Add( new IcePick(), true );
 		}
 
+		[AdminCmd]
+		public static void GivePick()
+		{
+			var player = ConsoleSystem.Caller.Pawn;
+
+			player?.Inventory.DeleteContents();
+			player?.Inventory.Add( new IcePick(), true );
+		}
+
+		[AdminCmd]
+		public static void GiveGun()
+		{
+			var player = ConsoleSystem.Caller.Pawn;
+
+			player?.Inventory.DeleteContents();
+			player?.Inventory.Add( new FreezeGun(), true );
+		}
 	}
 }

@@ -30,6 +30,8 @@ namespace FrostFight.Weapons
 			{
 				TimeSincePrimaryAttack = 0;
 
+				(Owner as AnimEntity)?.SetAnimBool( "b_attack", true );
+
 				if ( IsServer )
 				{
 					// Trace for freeze
@@ -42,27 +44,39 @@ namespace FrostFight.Weapons
 					}
 				}
 
+				CreateEffects();
+
 				// Client stuff
 				if ( !IsClient )
 					return;
-
-				if ( IceParticle is null )
-					IceParticle = Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
 
 				ViewModelEntity?.SetAnimBool( "fire", true );
 			}
 			else
 			{
+				DestroyEffects();
+
 				if ( !IsClient )
 					return;
 
-				if ( IceParticle is not null )
-				{
-					IceParticle.Destroy();
-					IceParticle = null;
-				}
-
 				ViewModelEntity?.SetAnimBool( "fire", false );
+			}
+		}
+
+		[ClientRpc]
+		public void CreateEffects()
+		{
+			if ( IceParticle is null )
+				IceParticle = Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
+		}
+
+		[ClientRpc]
+		public void DestroyEffects()
+		{
+			if ( IceParticle is not null )
+			{
+				IceParticle.Destroy();
+				IceParticle = null;
 			}
 		}
 

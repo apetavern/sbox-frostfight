@@ -22,5 +22,13 @@ namespace FrostFight
 
 			player.Respawn();
 		}
+
+		public override void ClientDisconnect( Client cl, NetworkDisconnectionReason reason )
+		{
+			var frostPlayer = cl.Pawn as FrostPlayer;
+			frostPlayer?.OnDisconnect();
+
+			base.ClientDisconnect( cl, reason );
+		}
 	}
 }
