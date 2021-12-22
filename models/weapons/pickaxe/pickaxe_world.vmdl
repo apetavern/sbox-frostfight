@@ -61,6 +61,21 @@
 					},
 				]
 			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "hitpoint"
+						parent_bone = "hold_R"
+						relative_origin = [ 5.502636, -8.744698, 10.768373 ]
+						relative_angles = [ 26.383127, -48.204212, -0.200977 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
 		]
 		model_archetype = ""
 		primary_associated_entity = ""
