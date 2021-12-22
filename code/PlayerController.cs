@@ -5,11 +5,11 @@ namespace FrostFight
 	[Library]
 	public partial class PlayerController : BasePlayerController
 	{
-		float RegularSprintSpeed = 150f;
+		float RegularSprintSpeed = 320f;
 		float RegularWalkSpeed = 150f;
 		float RegularSpeed = 150f;
 
-		[Net] public float SprintSpeed { get; set; } = 150.0f;
+		[Net] public float SprintSpeed { get; set; } = 320.0f;
 		[Net] public float WalkSpeed { get; set; } = 150.0f;
 		[Net] public float DefaultSpeed { get; set; } = 150.0f;
 		[Net] public float Acceleration { get; set; } = 10.0f;
@@ -265,7 +265,24 @@ namespace FrostFight
 			var ws = Duck.GetWishSpeed();
 			if ( ws >= 0 ) return ws;
 
-			if ( Input.Down( InputButton.Run ) ) return SprintSpeed;
+			var player = Pawn as FrostPlayer;
+
+			if ( Input.Down( InputButton.Run ) )
+			{
+				if ( player.Stamina >= 0 )
+				{
+					player.Stamina -= 1f;
+					return SprintSpeed;
+				}
+				else
+					return WalkSpeed;
+			}
+			else
+			{
+				player.Stamina += 1f;
+				player.Stamina = player.Stamina.Clamp( 0, 100 );
+			}
+
 			if ( Input.Down( InputButton.Walk ) ) return WalkSpeed;
 
 			return DefaultSpeed;
