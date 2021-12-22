@@ -8,6 +8,7 @@ namespace FrostFight.Weapons
 		public override string UIName => "Ice Pick";
 		public override string ViewModelPath => "models/weapons/pickaxe/pickaxe_view.vmdl";
 		public override float PrimaryRate => 1.2f;
+		public float WeaponReach { get; set; } = 45f;
 
 		public override void Spawn()
 		{
@@ -18,15 +19,31 @@ namespace FrostFight.Weapons
 
 		public override void AttackPrimary()
 		{
-			OnAttackEffects();
-
 			base.AttackPrimary();
+
+			ViewModelEntity?.SetAnimBool( "fire", true );
+			(Owner as AnimEntity)?.SetAnimBool( "b_attack", true );
+
+			if ( !IsServer )
+				return;
+
+			var trace = Trace.Ray( Owner.EyePos, Owner.EyePos + Owner.EyeRot.Forward * WeaponReach ).Ignore( Owner ).Run();
+
+			if ( trace.Entity is IceBlock block )
+				DoDamage( block );
+		}
+
+		public async void DoDamage( IceBlock block )
+		{
+			await GameTask.DelaySeconds( 0.2f );
+			block.TakeDamage();
 		}
 
 		[ClientRpc]
 		public void OnAttackEffects()
 		{
-			ViewModelEntity?.SetAnimBool( "fire", true );
+			// Do world model attack
+			(Owner as AnimEntity).SetAnimBool( "b_attack", true );
 		}
 
 		public override void SimulateAnimator( PawnAnimator anim )

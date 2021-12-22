@@ -1,5 +1,6 @@
 using FrostFight.UI;
 using Sandbox;
+using System.Linq;
 
 namespace FrostFight
 {
@@ -22,7 +23,22 @@ namespace FrostFight
 			var player = new FrostPlayer();
 			cl.Pawn = player;
 
-			Players.Add( player );
+			if ( State is GameState.Playing )
+				Spectators.Add( player );
+			else
+				Players.Add( player );
+		}
+
+		public override void ClientDisconnect( Client cl, NetworkDisconnectionReason reason )
+		{
+			var frostPlayer = cl.Pawn as FrostPlayer;
+			frostPlayer?.OnDisconnect();
+
+			var playerToRemove = Players.SingleOrDefault( p => p == frostPlayer );
+			if ( playerToRemove != null )
+				Players.Remove( playerToRemove );
+
+			base.ClientDisconnect( cl, reason );
 		}
 
 		[ServerCmd]
