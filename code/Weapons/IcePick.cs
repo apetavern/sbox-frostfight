@@ -29,7 +29,13 @@ namespace FrostFight.Weapons
 			var trace = Trace.Ray( Owner.EyePos, Owner.EyePos + Owner.EyeRot.Forward * WeaponReach ).Ignore( Owner ).Run();
 
 			if ( trace.Entity is IceBlock block )
-				block.TakeDamage();
+				DoDamage( block );
+		}
+
+		public async void DoDamage( IceBlock block )
+		{
+			await GameTask.DelaySeconds( 0.2f );
+			block.TakeDamage();
 		}
 
 		[ClientRpc]
