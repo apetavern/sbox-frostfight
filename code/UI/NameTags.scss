@@ -1,0 +1,48 @@
+﻿@import "/Code/UI/_Common.scss";
+
+nametags {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    pixel-snap: 0;
+
+    FrostNametag {
+        position: absolute;
+        color: white;
+        background-color: rgba( $neutral, 0.5 );
+        transform-origin: 50% 0%;
+        border-radius: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+
+        &.frozen {
+            background-color: rgba( $accent, 0.95 );
+        }
+
+        label {
+            padding: 1px 60px;
+            padding-left: 40px;
+            font-size: 40px;
+        }
+
+        image {
+            width: 64px;
+            height: 64px;
+            margin: 10px;
+            margin-right: 0px;
+            border-radius: 100%;
+        }
+
+        .freeze-level {
+            border-radius: 100%;
+            position: absolute;
+            bottom: -32px;
+            left: 0;
+            height: 20px;
+            background-color: $accent;
+        }
+    }
+}
