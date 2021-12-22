@@ -34,7 +34,7 @@ namespace FrostFight
 
 			var playerToRemove = Players.SingleOrDefault( p => p == frostPlayer );
 			if ( playerToRemove != null )
-				Spectators.Remove( playerToRemove );
+				Players.Remove( playerToRemove );
 
 			base.ClientDisconnect( cl, reason );
 		}
