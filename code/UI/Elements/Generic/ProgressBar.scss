@@ -6,7 +6,7 @@
     justify-content: center;
     background-color: rgba( $neutral, 0.5 );
     backdrop-filter: $backdrop-filter;
-    transform: translate( -50% ) skewX( -10deg );
+    transform: skewX( -10deg );
 
     .inner {
         background-color: rgba( $accent, 1.0 );
