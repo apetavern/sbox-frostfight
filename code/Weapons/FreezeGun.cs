@@ -7,6 +7,7 @@ namespace FrostFight.Weapons
 	{
 		public override string ViewModelPath => "models/weapons/freezegun/freezegun_view.vmdl";
 		public override float PrimaryRate => 0.6f;
+		public Particles IceParticle { get; set; }
 
 		public override void Spawn()
 		{
@@ -15,25 +16,34 @@ namespace FrostFight.Weapons
 			SetModel( "models/weapons/freezegun/freezegun_world.vmdl" );
 		}
 
-		public override void AttackPrimary()
+		public override void Simulate( Client player )
 		{
-			(Owner as AnimEntity).SetAnimBool( "fire", true );
+			if ( CanReload() )
+			{
+				Reload();
+			}
 
-			ShootEffects();
-			base.AttackPrimary();
-		}
+			if ( Input.Down( InputButton.Attack1 ) )
+			{
+				using ( LagCompensation() )
+				{
+					TimeSincePrimaryAttack = 0;
 
-		[ClientRpc]
-		public void SetFire()
-		{
-		}
+					//Do attack stuff
+					if ( IsClient && IceParticle is null )
+						IceParticle = Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
 
-		[ClientRpc]
-		public void ShootEffects()
-		{
-			Host.AssertClient();
-
-			Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
+					//(Owner as AnimEntity).SetAnimBool( "fire", true );
+				}
+			}
+			else
+			{
+				if ( IceParticle is not null )
+				{
+					IceParticle.Destroy();
+					IceParticle = null;
+				}
+			}
 		}
 
 		public override void SimulateAnimator( PawnAnimator anim )
