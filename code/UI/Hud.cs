@@ -12,7 +12,6 @@ namespace FrostFight.UI
 			{
 				RootPanel.AddChild<Crosshair>();
 				RootPanel.AddChild<CurrentWeapon>();
-				RootPanel.AddChild<HitmarkerContainer>();
 				RootPanel.AddChild<FreezeLevel>();
 				RootPanel.AddChild<Stamina>();
 

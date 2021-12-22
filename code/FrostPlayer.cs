@@ -67,8 +67,6 @@ namespace FrostFight
 
 		public void AddFreeze( float amount, Entity attacker )
 		{
-			CreateHitmarker( To.Single( attacker ) );
-
 			CurrentFreezeAmount += amount;
 			CurrentFreezeAmount = CurrentFreezeAmount.Clamp( 0, MaxFreezeAmount );
 
@@ -97,12 +95,6 @@ namespace FrostFight
 				Inventory.Add( new FreezeGun(), true );
 			else
 				Inventory.Add( new IcePick(), true );
-		}
-
-		[ClientRpc]
-		public static void CreateHitmarker()
-		{
-			HitmarkerContainer.OnHit();
 		}
 
 		[AdminCmd]
