@@ -1,4 +1,5 @@
-﻿using FrostFight.Weapons;
+﻿using FrostFight.UI.Elements;
+using FrostFight.Weapons;
 using Sandbox;
 
 namespace FrostFight
@@ -71,7 +72,7 @@ namespace FrostFight
 				DebugOverlay.Text( Position + Vector3.Up * 90f, $"Frozen amount: {CurrentFreezeAmount}" );
 		}
 
-		public void AddFreeze( float amount )
+		public void AddFreeze( float amount, Entity attacker )
 		{
 			CurrentFreezeAmount += amount;
 			CurrentFreezeAmount = CurrentFreezeAmount.Clamp( 0, MaxFreezeAmount );

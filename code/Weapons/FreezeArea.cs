@@ -30,7 +30,7 @@ namespace FrostFight.Weapons
 				var hits = Physics.GetEntitiesInSphere( Position, 10f ).Where( ent => ent is FrostPlayer fPlayer && !fPlayer.IsFreezer ).Cast<FrostPlayer>();
 				if ( hits.Any() )
 				{
-					hits.ToList().ForEach( ent => ent.AddFreeze( 0.1f ) );
+					hits.ToList().ForEach( ent => ent.AddFreeze( 0.1f, Owner ) );
 					DebugOverlay.Sphere( Position, 10f, Color.Red );
 				}
 				else

@@ -8,6 +8,8 @@ namespace FrostFight
 	{
 		public Hud Hud { get; set; }
 
+		public static Game Instance => Current as Game;
+
 		public Game()
 		{
 			if ( IsServer )
@@ -37,6 +39,15 @@ namespace FrostFight
 				Players.Remove( playerToRemove );
 
 			base.ClientDisconnect( cl, reason );
+		}
+
+		[ServerCmd]
+		public static void RecreateHud()
+		{
+			Instance.Hud?.Delete();
+			Instance.Hud = new Hud();
+
+			Log.Trace( "Created new hud element" );
 		}
 	}
 }

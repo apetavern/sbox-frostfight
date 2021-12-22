@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using FrostFight.UI.Elements;
+using Sandbox;
 using Sandbox.UI;
 
 namespace FrostFight.UI
@@ -7,7 +8,20 @@ namespace FrostFight.UI
 	{
 		public Hud()
 		{
+			if ( IsClient )
+			{
+				RootPanel.AddChild<Crosshair>();
+				RootPanel.AddChild<CurrentWeapon>();
+				RootPanel.AddChild<FreezeLevel>();
+				RootPanel.AddChild<Stamina>();
 
+				// TODO - if we have time - custom variants:
+				RootPanel.AddChild<NameTags>();
+				RootPanel.AddChild<ChatBox>();
+				RootPanel.AddChild<VoiceList>();
+				RootPanel.AddChild<KillFeed>();
+				RootPanel.AddChild<Scoreboard<ScoreboardEntry>>();
+			}
 		}
 	}
 }
