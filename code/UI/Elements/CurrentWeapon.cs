@@ -30,7 +30,7 @@ namespace FrostFight.UI.Elements
 
 			if ( active is Weapons.BaseWeapon inventoryWeapon )
 			{
-				weaponIcon.SetTexture( "tools/images/common/generic_hud_warning.png" );
+				weaponIcon.SetTexture( inventoryWeapon.UIImage );
 				weaponName.Text = inventoryWeapon.UIName;
 			}
 		}

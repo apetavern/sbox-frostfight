@@ -2,33 +2,34 @@
 
 currentweapon {
     position: absolute;
-    bottom: 50px;
+    bottom: 75px;
     right: 50px;
-    width: 275px;
-    height: 100px;
-    background-color: rgba( $neutral, 0.5 );
+    aspect-ratio: 1;
+    height: 128px;
+    padding: 10px 10px 10px 15px; // Extra on the left to account for skew
+    background-color: $accent;
     backdrop-filter: $backdrop-filter;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     transform: translate( -50% ) skewX( -10deg );
+    box-shadow: 5px 5px rgba( $neutral, 0.5 );
     border: 4px solid rgba( white, 0.2 );
-
-    .weapon-icon {
-        transform: scale( 1.2 ) skewX( 10deg );
-    }
 
     .weapon-name {
         font-size: 24px;
         flex-grow: 1;
         text-align: center;
         position: absolute;
-        left: 64px;
-        right: 0;
+        bottom: -48px;
+        left: -90px; // Account for skew, make it so that long text doesn't get cut off
+        right: -100px;
+        text-shadow: 0 0 5px rgba( black, 0.1 );
     }
 
     .weapon-icon {
-        flex-grow: 1;
+        transform: skewX( 10deg );
+        width: 100%;
         aspect-ratio: 1;
         background-size: cover;
         background-position: center;

@@ -6,6 +6,7 @@ namespace FrostFight.Weapons
 	public partial class FreezeGun : BaseWeapon
 	{
 		public override string UIName => "Freeze Gun";
+		public override string UIImage => "/textures/ui/freeze-gun.png";
 		public override string ViewModelPath => "models/weapons/freezegun/freezegun_view.vmdl";//"weapons/rust_pistol/v_rust_pistol.vmdl" "models/weapons/freezegun/freezegun_view.vmdl"
 		public override float PrimaryRate => 0.6f;
 		public float FreezeReach = 200f;
@@ -53,7 +54,7 @@ namespace FrostFight.Weapons
 
 				if ( IceParticle is null )
 					IceParticle = Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
-					
+
 				ViewModelEntity?.SetAnimBool( "fire", true );
 			}
 			else
