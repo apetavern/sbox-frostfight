@@ -14,10 +14,10 @@
 					m_id = 642703496
 				}
 				m_previewButton = "ANIMPARAM_BUTTON_NONE"
-				m_bNetwork = true
+				m_bNetwork = false
 				m_bUseMostRecentValue = false
-				m_bAutoReset = false
-				m_bPredicted = true
+				m_bAutoReset = true
+				m_bPredicted = false
 				m_bDefaultValue = false
 			},
 		]
@@ -85,7 +85,7 @@
 				{
 					m_id = 188269326
 				}
-				m_networkMode = "ClientPredicted"
+				m_networkMode = "ClientSimulate"
 				m_sNote = ""
 				m_childID = 
 				{
@@ -107,7 +107,7 @@
 				{
 					m_id = 1434099530
 				}
-				m_networkMode = "ClientPredicted"
+				m_networkMode = "ClientSimulate"
 				m_sNote = ""
 				m_tagSpans = [  ]
 				m_sequenceName = "idle"
@@ -129,7 +129,7 @@
 				{
 					m_id = 1511348074
 				}
-				m_networkMode = "ClientPredicted"
+				m_networkMode = "ClientSimulate"
 				m_sNote = ""
 				m_states = 
 				[
@@ -155,7 +155,7 @@
 										}
 									},
 								]
-								m_blendDuration = 0.2
+								m_blendDuration = 0.001
 								m_destState = 
 								{
 									m_id = 1871042815
@@ -199,20 +199,13 @@
 								m_conditions = 
 								[
 									{
-										_class = "CParameterAnimCondition"
+										_class = "CFinishedCondition"
 										m_comparisonOp = 0
-										m_paramID = 
-										{
-											m_id = 642703496
-										}
-										m_comparisonValue = 
-										{
-											m_nType = 1
-											m_data = false
-										}
+										m_option = "FinishedConditionOption_OnFinished"
+										m_bIsFinished = true
 									},
 								]
-								m_blendDuration = 0.2
+								m_blendDuration = 0.001
 								m_destState = 
 								{
 									m_id = 1023679273
@@ -247,6 +240,63 @@
 						m_bIsRootMotionExclusive = false
 						m_bAlwaysEvaluate = false
 					},
+					{
+						_class = "CAnimState"
+						m_transitions = 
+						[
+							{
+								_class = "CAnimStateTransition"
+								m_conditions = 
+								[
+									{
+										_class = "CParameterAnimCondition"
+										m_comparisonOp = 0
+										m_paramID = 
+										{
+											m_id = 642703496
+										}
+										m_comparisonValue = 
+										{
+											m_nType = 1
+											m_data = true
+										}
+									},
+								]
+								m_blendDuration = 0.001
+								m_destState = 
+								{
+									m_id = 1871042815
+								}
+								m_bReset = true
+								m_resetCycleOption = "Beginning"
+								m_flFixedCycleValue = 0.0
+								m_blendCurve = 
+								{
+									m_vControlPoint1 = [ 0.5, 0.0 ]
+									m_vControlPoint2 = [ 0.5, 1.0 ]
+								}
+								m_bForceFootPlant = false
+								m_bDisabled = false
+							},
+						]
+						m_tags = [  ]
+						m_tagBehaviors = [  ]
+						m_name = "Any"
+						m_childNodeID = 
+						{
+							m_id = 4294967295
+						}
+						m_stateID = 
+						{
+							m_id = 1256367443
+						}
+						m_position = [ -96.0, -224.0 ]
+						m_bIsStartState = false
+						m_bIsEndtState = false
+						m_bIsPassthrough = false
+						m_bIsRootMotionExclusive = false
+						m_bAlwaysEvaluate = true
+					},
 				]
 				m_bBlockWaningTags = false
 				m_bLockStateWhenWaning = false
@@ -266,12 +316,12 @@
 				{
 					m_id = 1711591776
 				}
-				m_networkMode = "ClientPredicted"
+				m_networkMode = "ClientSimulate"
 				m_sNote = ""
 				m_tagSpans = [  ]
 				m_sequenceName = "hit"
 				m_playbackSpeed = 1.0
-				m_bLoop = true
+				m_bLoop = false
 			}
 		},
 	]

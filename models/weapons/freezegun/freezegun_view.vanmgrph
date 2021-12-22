@@ -14,10 +14,10 @@
 					m_id = 766319165
 				}
 				m_previewButton = "ANIMPARAM_BUTTON_NONE"
-				m_bNetwork = true
+				m_bNetwork = false
 				m_bUseMostRecentValue = false
 				m_bAutoReset = false
-				m_bPredicted = true
+				m_bPredicted = false
 				m_bDefaultValue = false
 			},
 		]
@@ -80,12 +80,12 @@
 			{
 				_class = "CSequenceAnimNode"
 				m_sName = "Unnamed"
-				m_vecPosition = [ -416.0, -160.0 ]
+				m_vecPosition = [ -464.0, -176.0 ]
 				m_nNodeID = 
 				{
 					m_id = 401295932
 				}
-				m_networkMode = "ClientPredicted"
+				m_networkMode = "ClientSimulate"
 				m_sNote = ""
 				m_tagSpans = [  ]
 				m_sequenceName = "freezegun_idle"
@@ -102,12 +102,12 @@
 			{
 				_class = "CStateMachineAnimNode"
 				m_sName = "Unnamed"
-				m_vecPosition = [ -192.0, -144.0 ]
+				m_vecPosition = [ -208.0, -160.0 ]
 				m_nNodeID = 
 				{
 					m_id = 746789243
 				}
-				m_networkMode = "ClientPredicted"
+				m_networkMode = "ClientSimulate"
 				m_sNote = ""
 				m_states = 
 				[
@@ -133,7 +133,7 @@
 										}
 									},
 								]
-								m_blendDuration = 0.2
+								m_blendDuration = 0.001
 								m_destState = 
 								{
 									m_id = 2055618752
@@ -161,7 +161,7 @@
 						{
 							m_id = 1468093174
 						}
-						m_position = [ -336.0, -176.0 ]
+						m_position = [ -288.0, -160.0 ]
 						m_bIsStartState = true
 						m_bIsEndtState = false
 						m_bIsPassthrough = false
@@ -190,7 +190,7 @@
 										}
 									},
 								]
-								m_blendDuration = 0.2
+								m_blendDuration = 0.1
 								m_destState = 
 								{
 									m_id = 1468093174
@@ -218,7 +218,7 @@
 						{
 							m_id = 2055618752
 						}
-						m_position = [ -160.0, -176.0 ]
+						m_position = [ -128.0, -160.0 ]
 						m_bIsStartState = false
 						m_bIsEndtState = false
 						m_bIsPassthrough = false
@@ -244,7 +244,7 @@
 				{
 					m_id = 1238504773
 				}
-				m_networkMode = "ClientPredicted"
+				m_networkMode = "ClientSimulate"
 				m_sNote = ""
 				m_childID = 
 				{
@@ -261,12 +261,12 @@
 			{
 				_class = "CSequenceAnimNode"
 				m_sName = "Unnamed"
-				m_vecPosition = [ -416.0, -112.0 ]
+				m_vecPosition = [ -464.0, -112.0 ]
 				m_nNodeID = 
 				{
 					m_id = 1244228677
 				}
-				m_networkMode = "ClientPredicted"
+				m_networkMode = "ClientSimulate"
 				m_sNote = ""
 				m_tagSpans = [  ]
 				m_sequenceName = "freezegun_shoot"
