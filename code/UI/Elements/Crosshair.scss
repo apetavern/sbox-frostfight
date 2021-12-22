@@ -1,0 +1,29 @@
+﻿@import "/Code/UI/_Common.scss";
+
+Crosshair {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 50%;
+    top: 50%;
+    transform: translate( -50% -50% );
+    border-radius: 100%;
+    border: 2px solid white;
+    transition: all 150ms ease;
+
+    &.active {
+        width: 48px;
+        height: 48px;
+    }
+
+    .center-dot {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate( -50% -50% );
+        border-radius: 100%;
+    }
+}

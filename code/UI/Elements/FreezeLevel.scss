@@ -1,0 +1,17 @@
+﻿@import "/Code/UI/_Common.scss";
+
+FreezeLevel.progress-bar {
+    position: absolute;
+    bottom: 50px;
+    left: 150px;
+    width: 400px;
+    height: 50px;
+
+    .inner {
+        background-color: rgba( $accent, 1.0 );
+    }
+
+    .icon {
+        text-shadow: 0 0 10px $accent;
+    }
+}
