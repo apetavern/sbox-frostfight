@@ -1,11 +1,8 @@
 ﻿@import "/Code/UI/_Common.scss";
 
 Stamina.progress-bar {
-    position: absolute;
-    bottom: 110px;
-    left: 150px;
     width: 400px;
-    height: 50px;
+    height: 40px;
 
     .inner {
         background-color: rgba( $stamina, 1.0 );
