@@ -22,7 +22,7 @@ namespace FrostFight
 			var player = new FrostPlayer();
 			cl.Pawn = player;
 
-			player.Respawn();
+			Players.Add( player );
 		}
 
 		[ClientCmd]
