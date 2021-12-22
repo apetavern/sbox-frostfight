@@ -15,6 +15,8 @@ namespace FrostFight.UI.Elements
 
 		public override void Tick()
 		{
+			base.Tick();
+
 			if ( Local.Pawn is not FrostPlayer player )
 				return;
 
