@@ -9,6 +9,13 @@ namespace FrostFight
 		private Angles OrbitAngles;
 		private float OrbitDistance { get; set; } = 320;
 
+		public override void Activated()
+		{
+			base.Activated();
+
+			OrbitAngles = Local.Pawn.EyeRot.Angles();
+		}
+
 		public override void Update()
 		{
 			var pawn = Target ?? Local.Pawn as AnimEntity;
@@ -21,6 +28,7 @@ namespace FrostFight
 
 			Position += Vector3.Up * (40 * pawn.Scale);
 			Rotation = Rotation.From( OrbitAngles );
+
 			targetPos = Position + Rotation.Backward * OrbitDistance;
 
 			var tr = Trace.Ray( Position, targetPos ).WorldOnly()
@@ -43,10 +51,11 @@ namespace FrostFight
 			OrbitAngles = OrbitAngles.Normal;
 			OrbitAngles.pitch = OrbitAngles.pitch.Clamp( -89, 89 );
 
-			//input.ViewAngles = OrbitAngles;
+			input.ViewAngles = OrbitAngles;
+			input.AnalogMove = -input.AnalogMove;
 
-			//input.Clear();
-			//input.StopProcessing = true;
+			input.Clear();
+			input.StopProcessing = true;
 
 			base.BuildInput( input );
 		}
