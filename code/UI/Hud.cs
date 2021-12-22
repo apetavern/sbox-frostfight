@@ -10,6 +10,8 @@ namespace FrostFight.UI
 		{
 			if ( IsClient )
 			{
+				RootPanel.StyleSheet.Load( "/Code/UI/Hud.scss" );
+
 				RootPanel.AddChild<Crosshair>();
 				RootPanel.AddChild<CurrentWeapon>();
 				RootPanel.AddChild<Vitals>();
