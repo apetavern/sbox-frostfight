@@ -37,7 +37,7 @@ namespace FrostFight.Weapons
 
 					if ( TimeSinceAreaCreated > AreaCreationInterval )
 					{
-						var freezeArea = new FreezeArea() { Position = trace.EndPos };
+						var freezeArea = new FreezeArea() { Position = trace.EndPos, Owner = Owner };
 						TimeSinceAreaCreated = 0;
 					}
 				}
@@ -49,17 +49,20 @@ namespace FrostFight.Weapons
 				if ( IceParticle is null )
 					IceParticle = Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
 
-				ViewModelEntity?.SetAnimBool( "fire", true);
+				ViewModelEntity?.SetAnimBool( "fire", true );
 			}
 			else
 			{
+				if ( !IsClient )
+					return;
+
 				if ( IceParticle is not null )
 				{
 					IceParticle.Destroy();
 					IceParticle = null;
 				}
 
-				ViewModelEntity?.SetAnimBool( "fire", false);
+				ViewModelEntity?.SetAnimBool( "fire", false );
 			}
 		}
 
