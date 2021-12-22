@@ -14,6 +14,7 @@ namespace FrostFight.UI
 				RootPanel.AddChild<CurrentWeapon>();
 				RootPanel.AddChild<HitmarkerContainer>();
 				RootPanel.AddChild<FreezeLevel>();
+				RootPanel.AddChild<Stamina>();
 
 				// TODO - if we have time - custom variants:
 				RootPanel.AddChild<NameTags>();
