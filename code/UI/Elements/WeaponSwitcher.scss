@@ -13,7 +13,7 @@ weaponelement {
     width: 100%;
     height: 100px;
     background-color: rgba( $neutral, 0.5 );
-    backdrop-filter: blur( 10px );
+    backdrop-filter: $backdrop-filter;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
