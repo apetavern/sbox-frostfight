@@ -25,6 +25,7 @@ weaponelement {
 
         .weapon-icon {
             transform: scale( 1.2 ) rotate(-5deg);
+            box-shadow: 0 0 10px rgba( $accent, 0.25 );
         }
     }
 

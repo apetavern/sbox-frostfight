@@ -25,7 +25,7 @@ namespace FrostFight
 			Players.Add( player );
 		}
 
-		[ClientCmd]
+		[ServerCmd]
 		public static void RecreateHud()
 		{
 			Instance.Hud?.Delete();

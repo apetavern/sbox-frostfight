@@ -11,7 +11,7 @@ namespace FrostFight.UI.Elements
 		{
 			for ( int i = 0; i < 2; ++i )
 			{
-				var weaponElement = new WeaponElement( "Placeholder", "tools/images/common/generic_hud_warning.png", i );
+				var weaponElement = new WeaponElement( "Ice Pick", "tools/images/common/generic_hud_warning.png", i );
 
 				weaponElement.Parent = this;
 			}

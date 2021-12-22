@@ -3,17 +3,33 @@
 FreezeLevel {
     position: absolute;
     bottom: 50px;
-    left: 50px;
-    width: 250px;
+    left: 50%;
+    width: 400px;
     height: 50px;
     background-color: #00f;
     align-items: center;
     justify-content: center;
     background-color: rgba( $neutral, 0.5 );
-    border-radius: 10px;
     backdrop-filter: $backdrop-filter;
+    border-radius: 10px;
+    transform: translate( -50% );
 
     .inner {
         background-color: rgba( $accent, 0.5 );
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        border-radius: 10px;
+    }
+
+    .icon {
+        position: absolute;
+        left: 0;
+        bottom: -8px; // Dont fucking know but we're on a time limit here
+        font-size: 96px;
+        transform: rotate( -5deg ) translate( -50% );
+        text-shadow: 0 0 10px $accent;
     }
 }
