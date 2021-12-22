@@ -7,6 +7,9 @@ namespace FrostFight.Weapons
 	{
 		public override string ViewModelPath => "models/weapons/freezegun/freezegun_view.vmdl";
 		public override float PrimaryRate => 0.6f;
+		public float FreezeReach = 200f;
+		public TimeSince TimeSinceAreaCreated { get; set; }
+		public float AreaCreationInterval { get; set; } = 0.07f;
 		public Particles IceParticle { get; set; }
 
 		public override void Spawn()
@@ -25,19 +28,28 @@ namespace FrostFight.Weapons
 
 			if ( Input.Down( InputButton.Attack1 ) )
 			{
-				using ( LagCompensation() )
+				TimeSincePrimaryAttack = 0;
+
+				if ( IsServer )
 				{
-					TimeSincePrimaryAttack = 0;
+					// Trace for freeze
+					var trace = Trace.Ray( Owner.EyePos, Owner.EyePos + Owner.EyeRot.Forward * FreezeReach ).Ignore( Owner ).Run();
 
-					// Client stuff
-					if ( !IsClient )
-						return;
-
-					if ( IceParticle is null )
-						IceParticle = Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
-
-					ViewModelEntity?.SetAnimBool( "fire", true );
+					if ( TimeSinceAreaCreated > AreaCreationInterval )
+					{
+						var freezeArea = new FreezeArea() { Position = trace.EndPos };
+						TimeSinceAreaCreated = 0;
+					}
 				}
+
+				// Client stuff
+				if ( !IsClient )
+					return;
+
+				if ( IceParticle is null )
+					IceParticle = Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
+
+				ViewModelEntity?.SetAnimBool( "fire", true );
 			}
 			else
 			{
