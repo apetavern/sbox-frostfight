@@ -29,11 +29,14 @@ namespace FrostFight.Weapons
 				{
 					TimeSincePrimaryAttack = 0;
 
-					//Do attack stuff
-					if ( IsClient && IceParticle is null )
+					// Client stuff
+					if ( !IsClient )
+						return;
+
+					if ( IceParticle is null )
 						IceParticle = Particles.Create( "particles/frostpuff.vpcf", EffectEntity, "muzzle" );
 
-					//(Owner as AnimEntity).SetAnimBool( "fire", true );
+					ViewModelEntity?.SetAnimBool( "fire", true );
 				}
 			}
 			else
@@ -43,6 +46,8 @@ namespace FrostFight.Weapons
 					IceParticle.Destroy();
 					IceParticle = null;
 				}
+
+				ViewModelEntity?.SetAnimBool( "fire", false );
 			}
 		}
 

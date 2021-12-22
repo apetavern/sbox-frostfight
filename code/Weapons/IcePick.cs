@@ -17,9 +17,15 @@ namespace FrostFight.Weapons
 
 		public override void AttackPrimary()
 		{
-			(Owner as AnimEntity).SetAnimBool( "fire", true );
+			OnAttackEffects();
 
 			base.AttackPrimary();
+		}
+
+		[ClientRpc]
+		public void OnAttackEffects()
+		{
+			ViewModelEntity?.SetAnimBool( "fire", true );
 		}
 
 		public override void SimulateAnimator( PawnAnimator anim )
