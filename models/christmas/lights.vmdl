@@ -1,0 +1,202 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.05
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "clights_lightbase_blue.vmat"
+								to = "models/christmas/textures/clights_blue.vmat"
+							},
+							{
+								from = "clights_lightbase_green.vmat"
+								to = "models/christmas/textures/clights_green.vmat"
+							},
+							{
+								from = "clights_lightbase_red.vmat"
+								to = "models/christmas/textures/clights_red.vmat"
+							},
+							{
+								from = "clights_lightbase_yellow.vmat"
+								to = "models/christmas/textures/clights_yellow.vmat"
+							},
+							{
+								from = "clights_wires.vmat"
+								to = "models/christmas/textures/clights_wires.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+					{
+						_class = "MaterialGroup"
+						name = "color_off"
+						remaps = 
+						[
+							{
+								from = "models/christmas/textures/clights_red.vmat"
+								to = "models/christmas/textures/clights_red_off.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_blue.vmat"
+								to = "models/christmas/textures/clights_blue_off.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_yellow.vmat"
+								to = "models/christmas/textures/clights_yellow_off.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_green.vmat"
+								to = "models/christmas/textures/clights_green_off.vmat"
+							},
+						]
+					},
+					{
+						_class = "MaterialGroup"
+						name = "color_twinkle"
+						remaps = 
+						[
+							{
+								from = "models/christmas/textures/clights_red.vmat"
+								to = "models/christmas/textures/clights_red_twinkle.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_blue.vmat"
+								to = "models/christmas/textures/clights_blue_twinkle.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_yellow.vmat"
+								to = "models/christmas/textures/clights_yellow_twinkle.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_green.vmat"
+								to = "models/christmas/textures/clights_green_twinkle.vmat"
+							},
+						]
+					},
+					{
+						_class = "MaterialGroup"
+						name = "classic_on"
+						remaps = 
+						[
+							{
+								from = "models/christmas/textures/clights_red.vmat"
+								to = "models/christmas/textures/clights_classic.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_blue.vmat"
+								to = "models/christmas/textures/clights_classic.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_yellow.vmat"
+								to = "models/christmas/textures/clights_classic.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_green.vmat"
+								to = "models/christmas/textures/clights_classic.vmat"
+							},
+						]
+					},
+					{
+						_class = "MaterialGroup"
+						name = "classic_off"
+						remaps = 
+						[
+							{
+								from = "models/christmas/textures/clights_red.vmat"
+								to = "models/christmas/textures/clights_classic_off.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_blue.vmat"
+								to = "models/christmas/textures/clights_classic_off.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_yellow.vmat"
+								to = "models/christmas/textures/clights_classic_off.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_green.vmat"
+								to = "models/christmas/textures/clights_classic_off.vmat"
+							},
+						]
+					},
+					{
+						_class = "MaterialGroup"
+						name = "classic_twinkle"
+						remaps = 
+						[
+							{
+								from = "models/christmas/textures/clights_red.vmat"
+								to = "models/christmas/textures/clights_classic_twinkle.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_blue.vmat"
+								to = "models/christmas/textures/clights_classic_twinkle.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_yellow.vmat"
+								to = "models/christmas/textures/clights_classic_twinkle.vmat"
+							},
+							{
+								from = "models/christmas/textures/clights_green.vmat"
+								to = "models/christmas/textures/clights_classic_twinkle.vmat"
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/christmas/src/lights.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"clights_classic",
+							]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}

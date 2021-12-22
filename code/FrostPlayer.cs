@@ -10,6 +10,7 @@ namespace FrostFight
 		[Net] public bool IsFreezer { get; set; } = false;
 		[Net] public float CurrentFreezeAmount { get; private set; }
 		[Net] public float Stamina { get; set; } = 100;
+		public TimeSince TimeSinceLastFroze { get; set; }
 		public IceBlock IceBlock { get; set; }
 		public bool IsFrozen => CurrentFreezeAmount >= MaxFreezeAmount;
 
@@ -45,10 +46,13 @@ namespace FrostFight
 
 		public override void Simulate( Client cl )
 		{
-			if ( IsFrozen )
-				return;
-
 			base.Simulate( cl );
+
+			// Update movement speed based on CurrentFreezeAmount
+			(GetActiveController() as PlayerController)?.ScaleMovementSpeedsByFreeze( CurrentFreezeAmount );
+
+			if ( CurrentFreezeAmount > 0 && TimeSinceLastFroze > 1 && !IsFrozen )
+				CurrentFreezeAmount--;
 
 			if ( Input.ActiveChild != null )
 			{
@@ -56,6 +60,9 @@ namespace FrostFight
 			}
 
 			if ( LifeState != LifeState.Alive )
+				return;
+
+			if ( IsFrozen )
 				return;
 
 			TickPlayerUse();
@@ -70,21 +77,27 @@ namespace FrostFight
 			CurrentFreezeAmount += amount;
 			CurrentFreezeAmount = CurrentFreezeAmount.Clamp( 0, MaxFreezeAmount );
 
-			(GetActiveController() as PlayerController)?.ScaleMovementSpeedsByFreeze( CurrentFreezeAmount );
-
 			if ( CurrentFreezeAmount >= MaxFreezeAmount && !IceBlock.IsValid() )
 			{
-				IceBlock = new();
-				IceBlock.Position = Position;
-				IceBlock.Owner = this;
+				IceBlock = new()
+				{
+					Position = Position,
+					Owner = this,
+					Parent = this
+				};
+
+				Camera = new SpectateBlockCamera() { Target = this };
 			}
+
+			TimeSinceLastFroze = 0;
 		}
 
 		public void ClearFreeze()
 		{
 			CurrentFreezeAmount = 0;
-			(GetActiveController() as PlayerController)?.ScaleMovementSpeedsByFreeze( CurrentFreezeAmount );
 			IceBlock = null;
+
+			Camera = new FirstPersonCamera();
 		}
 
 		private void SetLoadout()

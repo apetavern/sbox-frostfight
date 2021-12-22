@@ -5,7 +5,6 @@ Layer0
 	shader "complex.vfx"
 
 	//---- PBR ----
-	F_SELF_ILLUM 1
 	F_SPECULAR 1
 
 	//---- Ambient Occlusion ----
@@ -36,14 +35,6 @@ Layer0
 
 	//---- Roughness ----
 	TextureRoughness "materials/snow_roughness.psd"
-
-	//---- Self Illum ----
-	g_flSelfIllumAlbedoFactor "1.000"
-	g_flSelfIllumBrightness "0.000"
-	g_flSelfIllumScale "1.000"
-	g_vSelfIllumScrollSpeed "[0.000 0.000]"
-	g_vSelfIllumTint "[1.000000 1.000000 1.000000 0.000000]"
-	TextureSelfIllumMask "materials/snow.psd"
 
 	//---- Texture Coordinates ----
 	g_nScaleTexCoordUByModelScaleAxis "0"

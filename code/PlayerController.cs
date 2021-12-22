@@ -37,9 +37,9 @@ namespace FrostFight
 
 		public void ScaleMovementSpeedsByFreeze( float amount )
 		{
-			SprintSpeed = RegularSprintSpeed - (RegularSprintSpeed / 100) * amount;
-			WalkSpeed = RegularWalkSpeed - (RegularWalkSpeed / 100) * amount;
-			DefaultSpeed = RegularSpeed - (RegularSpeed / 100) * amount;
+			SprintSpeed = RegularSprintSpeed - (RegularSprintSpeed / 80) * amount;
+			WalkSpeed = RegularWalkSpeed - (RegularWalkSpeed / 80) * amount;
+			DefaultSpeed = RegularSpeed - (RegularSpeed / 80) * amount;
 		}
 
 		public PlayerController()
