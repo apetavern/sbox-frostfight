@@ -82,6 +82,5 @@ namespace FrostFight
 			else
 				Inventory.Add( new IcePick(), true );
 		}
-
 	}
 }

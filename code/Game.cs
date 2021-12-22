@@ -7,6 +7,8 @@ namespace FrostFight
 	{
 		public Hud Hud { get; set; }
 
+		public static Game Instance => Current as Game;
+
 		public Game()
 		{
 			if ( IsServer )
@@ -21,6 +23,15 @@ namespace FrostFight
 			cl.Pawn = player;
 
 			player.Respawn();
+		}
+
+		[ClientCmd]
+		public static void RecreateHud()
+		{
+			Instance.Hud?.Delete();
+			Instance.Hud = new Hud();
+
+			Log.Trace( "Created new hud element" );
 		}
 	}
 }

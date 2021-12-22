@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using FrostFight.UI.Elements;
+using Sandbox;
 using Sandbox.UI;
 
 namespace FrostFight.UI
@@ -7,7 +8,16 @@ namespace FrostFight.UI
 	{
 		public Hud()
 		{
+			if ( IsClient )
+			{
+				RootPanel.AddChild<WeaponSwitcher>();
+				RootPanel.AddChild<FreezeLevel>();
 
+				// TODO:
+				RootPanel.AddChild<ChatBox>();
+				RootPanel.AddChild<KillFeed>();
+				RootPanel.AddChild<Scoreboard<ScoreboardEntry>>();
+			}
 		}
 	}
 }
