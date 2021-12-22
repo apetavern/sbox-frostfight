@@ -1,19 +1,16 @@
-﻿using Sandbox;
+﻿using FrostFight.UI.Elements.Generic;
+using Sandbox;
 using Sandbox.UI;
 using Sandbox.UI.Construct;
 
 namespace FrostFight.UI.Elements
 {
-	public class Stamina : Panel
+	public class Stamina : ProgressBar
 	{
-		Panel innerPanel;
-
 		public Stamina()
 		{
 			StyleSheet.Load( "/UI/Elements/Stamina.scss" );
 			Add.Icon( "bolt", "icon" );
-
-			innerPanel = Add.Panel( "inner" );
 		}
 
 		public override void Tick()
