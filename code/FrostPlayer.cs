@@ -6,7 +6,7 @@ namespace FrostFight
 	public partial class FrostPlayer : Player
 	{
 		public const float MaxFreezeAmount = 100;
-		[Net] public bool IsFreezer { get; private set; } = true;
+		[Net] public bool IsFreezer { get; set; } = false;
 		[Net] public float CurrentFreezeAmount { get; private set; }
 		public ModelEntity IceBlock { get; set; }
 
