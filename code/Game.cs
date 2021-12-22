@@ -20,7 +20,7 @@ namespace FrostFight
 			var player = new FrostPlayer();
 			cl.Pawn = player;
 
-			player.Respawn();
+			Players.Add( player );
 		}
 
 		public override void ClientDisconnect( Client cl, NetworkDisconnectionReason reason )
