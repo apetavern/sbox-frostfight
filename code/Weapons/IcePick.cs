@@ -5,6 +5,7 @@ namespace FrostFight.Weapons
 	[Library( "weapon_icepick" )]
 	public partial class IcePick : BaseWeapon
 	{
+		public override string UIName => "Ice Pick";
 		public override string ViewModelPath => "models/weapons/pickaxe/pickaxe_view.vmdl";
 		public override float PrimaryRate => 1.2f;
 
