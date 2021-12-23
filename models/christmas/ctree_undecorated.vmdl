@@ -6,25 +6,6 @@
 		children = 
 		[
 			{
-				_class = "ModelModifierList"
-				children = 
-				[
-					{
-						_class = "ModelModifier_ScaleAndMirror"
-						scale = 0.05
-						mirror_x = false
-						mirror_y = false
-						mirror_z = false
-						flip_bone_forward = false
-						swap_left_and_right_bones = false
-					},
-					{
-						_class = "ModelModifier_Translate"
-						translation = [ 0.0, 0.0, 41.5 ]
-					},
-				]
-			},
-			{
 				_class = "LODGroupList"
 				children = 
 				[
@@ -63,24 +44,24 @@
 						remaps = 
 						[
 							{
-								from = "ctree_base.vmat"
-								to = "models/christmas/textures/ctree_base.vmat"
-							},
-							{
-								from = "pine_01.vmat"
+								from = "pine_05.vmat"
 								to = "models/christmas/textures/pine_01.vmat"
 							},
 							{
-								from = "pine_02.vmat"
-								to = "models/christmas/textures/pine_02.vmat"
+								from = "pine_06.vmat"
+								to = "models/christmas/textures/pine_01.vmat"
 							},
 							{
-								from = "pine_03.vmat"
+								from = "pine_07.vmat"
 								to = "models/christmas/textures/pine_03.vmat"
 							},
 							{
-								from = "pine_04.vmat"
+								from = "pine_08.vmat"
 								to = "models/christmas/textures/pine_04.vmat"
+							},
+							{
+								from = "ctree_base1.vmat"
+								to = "models/christmas/textures/ctree_base.vmat"
 							},
 						]
 						use_global_default = false
@@ -99,13 +80,13 @@
 						surface_prop = "default"
 						collision_prop = "default"
 						recenter_on_parent_bone = false
-						offset_origin = [ 0.0, 0.0, 830.0 ]
+						offset_origin = [ 0.0, 0.0, 0.0 ]
 						offset_angles = [ 0.0, 0.0, 0.0 ]
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
 						filename = "models/christmas/src/ctree_undecorated.fbx"
-						import_scale = 0.05
+						import_scale = 2.0
 						faceMergeAngle = 10.0
 						maxHullVertices = 0
 						import_mode = "SingleHull"
@@ -128,7 +109,7 @@
 						filename = "models/christmas/src/ctree_undecorated.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
-						import_scale = 1.0
+						import_scale = 2.0
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
@@ -148,7 +129,7 @@
 						filename = "models/christmas/src/ctree_undecorated.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
-						import_scale = 1.0
+						import_scale = 2.0
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
@@ -168,7 +149,7 @@
 						filename = "models/christmas/src/ctree_undecorated.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
-						import_scale = 1.0
+						import_scale = 2.0
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
