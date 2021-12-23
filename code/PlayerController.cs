@@ -280,6 +280,9 @@ namespace FrostFight
 			{
 				if ( player.Stamina >= 0 )
 				{
+					if ( Velocity.WithZ( 0 ).IsNearlyZero() )
+						return WalkSpeed;
+
 					player.Stamina -= 1f;
 					return SprintSpeed;
 				}
