@@ -74,6 +74,9 @@ namespace FrostFight.Weapons
 
 				TimeSinceSecondaryAttack = 0;
 
+				(Owner as AnimEntity)?.SetAnimBool( "b_attack", true );
+				ViewModelEntity?.SetAnimBool( "fire_snowball", true );
+
 				if ( !IsServer )
 					return;
 
