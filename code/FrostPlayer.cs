@@ -42,6 +42,10 @@ namespace FrostFight
 
 			Clothing.DressEntity( this );
 
+			// Santa hat
+			var hat = new ModelEntity( "models/cosmetics/santahat/santahat.vmdl", this );
+			hat.EnableHideInFirstPerson = true;
+
 			CurrentFreezeAmount = 0;
 
 			SetLoadout();
