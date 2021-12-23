@@ -49,9 +49,14 @@ namespace FrostFight.Weapons
 				{
 					var hitParticles = Particles.Create( "particles/impact.generic.smokepuff.vpcf", Position );
 					hitParticles.SetForward( 0, (OriginPos - TargetPos).Normal );
+					Sound.FromWorld( "snowball_hit", Position );
+				}
+				else
+				{
+					Sound.FromWorld( "snowball_hit", Position ).SetVolume(0.25f);
 				}
 
-				Sound.FromWorld( "snowball_hit", Position );
+				
 
 				Delete();
 			}

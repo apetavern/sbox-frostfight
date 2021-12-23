@@ -38,6 +38,11 @@ namespace FrostFight
 			"sounds/soundeffects/snowball/snowball_hit2.vsnd",
 			"sounds/soundeffects/snowball/snowball_hit3.vsnd",
 			"sounds/soundeffects/snowball/snowball_hit4.vsnd",
+			"sounds/soundeffects/snowball/snowball_stun1.vsnd",
+			"sounds/soundeffects/snowball/snowball_stun2.vsnd",
+			"sounds/soundeffects/snowball/snowball_stun3.vsnd",
+			"sounds/soundeffects/snowball/snowball_stun4.vsnd",
+			"sounds/soundeffects/snowball/snowball_stun5.vsnd",
 			
 
 			// Models
