@@ -25,7 +25,10 @@ namespace FrostFight
 		public FrostPlayer( Client cl ) : this()
 		{
 			Clothing.LoadFromClient( cl );
-			Clothing.Clothing.RemoveAll( item => item.Category == Sandbox.Clothing.ClothingCategory.Hat );
+			Clothing.Clothing.RemoveAll(
+				item => (
+					item.Category == Sandbox.Clothing.ClothingCategory.Hat ||
+					item.Category == Sandbox.Clothing.ClothingCategory.Hair) );
 		}
 
 		public override void Respawn()
