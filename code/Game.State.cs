@@ -25,6 +25,7 @@ namespace FrostFight
 		[Net] public IList<FrostPlayer> Spectators { get; set; }
 		[Net] public float WaitingTimer { get; set; } = -1;
 		[Net] public float PlayingTimer { get; set; } = -1;
+		[Net] public float GameOverTimer { get; set; } = -1;
 		[Net] public Teams WinningTeam { get; set; }
 
 		[Event.Tick]
@@ -71,7 +72,7 @@ namespace FrostFight
 		private void TickPlaying()
 		{
 			if ( PlayingTimer == -1 )
-				PlayingTimer = 300;
+				PlayingTimer = 120;
 
 			PlayingTimer -= Time.Delta;
 
@@ -105,13 +106,14 @@ namespace FrostFight
 
 		private void TickGameOver()
 		{
-			if ( WinningTeam == Teams.Runners )
-			{
+			if ( GameOverTimer == -1 )
+				GameOverTimer = 10;
 
-			}
-			else
-			{
+			GameOverTimer -= Time.Delta;
 
+			if ( GameOverTimer <= 0 )
+			{
+				ResetGame();
 			}
 		}
 
@@ -156,6 +158,33 @@ namespace FrostFight
 				WinningTeam = Teams.None;
 				ChangeState( GameState.GameOver );
 			}
+		}
+
+		private void ResetGame()
+		{
+			// Reset Timers
+			WaitingTimer = 10;
+			PlayingTimer = -1;
+			GameOverTimer = -1;
+
+			// Reset Players
+			foreach ( var player in Players )
+			{
+				player.MovementDisabled = true;
+				player.ClearFreeze();
+				player.IsFreezer = false;
+				player.Stamina = 100;
+			}
+
+			// Add Spectators to Players
+			foreach ( var player in Spectators )
+			{
+				Players.Add( player );
+			}
+			Spectators.Clear();
+
+			// Set to Waiting State with reduced waiting time
+			ChangeState( GameState.Waiting );
 		}
 	}
 }

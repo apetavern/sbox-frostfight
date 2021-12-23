@@ -25,12 +25,14 @@ namespace FrostFight
 
 			var player = new FrostPlayer( cl );
 			cl.Pawn = player;
-			player.Respawn();
 
 			if ( State is GameState.Playing )
 				Spectators.Add( player );
 			else
+			{
 				Players.Add( player );
+				player.Respawn();
+			}
 		}
 
 		public override void ClientDisconnect( Client cl, NetworkDisconnectionReason reason )
