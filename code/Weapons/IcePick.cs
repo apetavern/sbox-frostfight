@@ -32,6 +32,8 @@ namespace FrostFight.Weapons
 
 			if ( trace.Entity is IceBlock block )
 				DoDamage( block, trace.EndPos );
+			else if ( trace.Entity is GlassShard shard )
+				shard.TakeDamage( DamageInfo.FromBullet( trace.EndPos, trace.Direction * 32, 100f ) );
 		}
 
 		public async void DoDamage( IceBlock block, Vector3 hitPos )

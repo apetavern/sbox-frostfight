@@ -6,7 +6,7 @@ FreezeLevel.progress-bar {
     margin-top: 10px;
 
     .inner {
-        background-color: rgba( $accent, 1.0 );
+        background: linear-gradient( 25%, $accent-dark, $accent );
     }
 
     .icon {

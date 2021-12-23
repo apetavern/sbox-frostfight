@@ -12,11 +12,6 @@ Crosshair {
     transition: all 150ms ease;
     opacity: 0;
 
-    &.active {
-        width: 48px;
-        height: 48px;
-    }
-
     &.visible {
         opacity: 1;
     }

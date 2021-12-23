@@ -42,7 +42,7 @@ nametags {
             bottom: -32px;
             left: 0;
             height: 20px;
-            background-color: $accent;
+            background: linear-gradient( 25%, $accent-dark, $accent );
         }
     }
 }

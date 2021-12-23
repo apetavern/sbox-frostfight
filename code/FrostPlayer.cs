@@ -54,6 +54,11 @@ namespace FrostFight
 			base.Respawn();
 		}
 
+		public override void OnKilled()
+		{
+			// Do nothing. Nobody dies.
+		}
+
 		public void OnDisconnect()
 		{
 			IceBlock?.Delete();
@@ -120,6 +125,7 @@ namespace FrostFight
 		public void ClearFreeze()
 		{
 			CurrentFreezeAmount = 0;
+			IceBlock?.Delete();
 			IceBlock = null;
 
 			Camera = new FirstPersonCamera();

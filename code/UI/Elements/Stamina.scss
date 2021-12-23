@@ -5,7 +5,7 @@ Stamina.progress-bar {
     height: 40px;
 
     .inner {
-        background-color: rgba( $stamina, 1.0 );
+        background: linear-gradient( 25%, $stamina-dark, $stamina );
     }
 
     .icon {

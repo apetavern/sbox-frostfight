@@ -29,7 +29,6 @@ namespace FrostFight
 		public override void OnKilled()
 		{
 			(Owner as FrostPlayer)?.ClearFreeze();
-			Delete();
 		}
 
 		private void UpdateModelFromHealth()
