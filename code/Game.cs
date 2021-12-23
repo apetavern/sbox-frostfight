@@ -20,7 +20,7 @@ namespace FrostFight
 		{
 			base.ClientJoined( cl );
 
-			var player = new FrostPlayer();
+			var player = new FrostPlayer( cl );
 			cl.Pawn = player;
 
 			if ( State is GameState.Playing )

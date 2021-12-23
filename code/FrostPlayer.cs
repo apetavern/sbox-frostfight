@@ -14,10 +14,16 @@ namespace FrostFight
 		[Net] public TimeSince TimeSinceStunned { get; set; }
 		[Net] public IceBlock IceBlock { get; set; }
 		public bool IsFrozen => CurrentFreezeAmount >= MaxFreezeAmount;
+		public Clothing.Container Clothing = new();
 
 		public FrostPlayer()
 		{
 			Inventory = new BaseInventory( this );
+		}
+
+		public FrostPlayer( Client cl ) : this()
+		{
+			Clothing.LoadFromClient( cl );
 		}
 
 		public override void Respawn()
@@ -32,6 +38,8 @@ namespace FrostFight
 			EnableDrawing = true;
 			EnableHideInFirstPerson = true;
 			EnableShadowInFirstPerson = true;
+
+			Clothing.DressEntity( this );
 
 			CurrentFreezeAmount = 0;
 
