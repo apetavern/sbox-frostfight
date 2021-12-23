@@ -54,9 +54,6 @@ namespace FrostFight.Weapons
 
 			var impactEffect = Particles.Create( "particles/impact.ice.vpcf", hitPos );
 			impactEffect.SetForward( 0, hitPos.Normal );
-
-			DebugOverlay.Sphere( hitPos, 2f, Color.Red, false, 2f );
-			DebugOverlay.Line( hitPos, hitPos + hitPos.Normal, 2f );
 		}
 
 		[ClientRpc]

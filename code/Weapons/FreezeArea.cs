@@ -31,11 +31,6 @@ namespace FrostFight.Weapons
 				if ( hits.Any() )
 				{
 					hits.ToList().ForEach( ent => ent.AddFreeze( 0.1f, Owner ) );
-					DebugOverlay.Sphere( Position, 10f, Color.Red );
-				}
-				else
-				{
-					DebugOverlay.Sphere( Position, 10f, Color.White );
 				}
 			}
 		}

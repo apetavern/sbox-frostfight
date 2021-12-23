@@ -48,11 +48,6 @@ namespace FrostFight.UI.Elements
 			TimeSpan time = TimeSpan.FromSeconds( stateTime );
 			stateTimeLabel.Text = time.ToString( "mm':'ss" );
 			stateNameLabel.Text = stateName;
-
-			DebugOverlay.ScreenText( 0, $"Game state: {Game.Instance.State}" );
-			DebugOverlay.ScreenText( 1, $"Wait timer: {Game.Instance.WaitingTimer}" );
-			DebugOverlay.ScreenText( 2, $"Play timer: {Game.Instance.PlayingTimer}" );
-			DebugOverlay.ScreenText( 3, $"Winners: {Game.Instance.WinningTeam}" );
 		}
 	}
 }
