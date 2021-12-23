@@ -1,6 +1,5 @@
 ﻿using FrostFight.Weapons;
 using Sandbox;
-using System.Linq;
 
 namespace FrostFight
 {
