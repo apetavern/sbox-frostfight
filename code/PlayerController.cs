@@ -36,7 +36,7 @@ namespace FrostFight
 		public Unstuck Unstuck;
 
 		private TimeSince timeSinceJump;
-		private float minJumpDelay = 0.25f; // How many seconds need to pass between jumps before decay isn't applied
+		private float minJumpDelay = 0.75f; // How many seconds need to pass between jumps before decay isn't applied
 
 		public void ScaleMovementSpeedsByFreeze( float amount )
 		{
