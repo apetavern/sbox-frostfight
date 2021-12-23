@@ -34,6 +34,13 @@ namespace FrostFight.Weapons
 				DoDamage( block, trace.EndPos );
 			else if ( trace.Entity is GlassShard shard )
 				DoGlassDamage( shard, trace.EndPos, trace.Direction * 32 );
+			else
+			{
+				using ( Prediction.Off() )
+				{
+					Sound.FromEntity( "icepick_miss", this );
+				}
+			}
 		}
 
 		public async void DoDamage( IceBlock block, Vector3 hitPos )
