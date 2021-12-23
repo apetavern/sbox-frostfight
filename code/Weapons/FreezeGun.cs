@@ -77,9 +77,12 @@ namespace FrostFight.Weapons
 				if ( !IsServer )
 					return;
 
+				var trace = Trace.Ray( Owner.EyePos, Owner.EyePos + Owner.EyeRot.Forward * 1000 ).Ignore( Owner ).Run();
+
+				SnowballFiredEffects();
+
 				var snowball = new Snowball() { Owner = Owner };
-				snowball.Position = Owner.EyePos + Owner.EyeRot.Forward * 30f;
-				snowball.ApplyAbsoluteImpulse( Owner.EyeRot.Forward * 2000f );
+				snowball.FireTowards( trace.EndPos );
 			}
 		}
 
@@ -97,6 +100,15 @@ namespace FrostFight.Weapons
 			{
 				IceParticle.Destroy();
 				IceParticle = null;
+			}
+		}
+
+		[ClientRpc]
+		public void SnowballFiredEffects()
+		{
+			if ( IsLocalPawn )
+			{
+				_ = new Sandbox.ScreenShake.Perlin();
 			}
 		}
 

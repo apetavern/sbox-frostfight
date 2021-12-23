@@ -7,26 +7,50 @@ using System.Threading.Tasks;
 
 namespace FrostFight.Weapons
 {
-	public class Snowball : ModelEntity
+	public partial class Snowball : ModelEntity
 	{
+		private Vector3 OriginPos { get; set; }
+		private Vector3 TargetPos { get; set; }
+		private float Distance { get; set; }
+		private float Speed { get; set; } = 550f;
+		private TimeSince TimeSinceFired { get; set; }
+
 		public override void Spawn()
 		{
 			base.Spawn();
 
 			SetModel( "models/christmas/snowball.vmdl_c" );
-			SetupPhysicsFromModel( PhysicsMotionType.Dynamic );
-
-			DeleteAsync( 10 );
 		}
 
-		protected override void OnPhysicsCollision( CollisionEventData eventData )
+		public void FireTowards( Vector3 targetPos )
 		{
-			base.OnPhysicsCollision( eventData );
+			OriginPos = Owner.EyePos + Owner.EyeRot.Forward * 30f;
+			TargetPos = targetPos;
+			Distance = Vector3.DistanceBetween( OriginPos, TargetPos );
+			TimeSinceFired = 0;
+		}
 
-			Delete();
+		[Event.Tick.Server]
+		public void OnTick()
+		{
+			if ( OriginPos == Vector3.Zero )
+				return;
 
-			if ( eventData.Entity is FrostPlayer player )
-				player.AddFreezeWithStun( 25, Owner );
+			var distTravelled = TimeSinceFired * Speed;
+			var currPos = distTravelled / Distance;
+
+			Position = Vector3.Lerp( OriginPos, TargetPos, currPos );
+
+			if ( Position.IsNearlyEqual( TargetPos ) )
+			{
+				var hitPlayer = Physics.GetEntitiesInSphere( Position, 5f )
+					.Where( ent => ent is FrostPlayer fPlayer && !fPlayer.IsFreezer )
+					.Cast<FrostPlayer>().FirstOrDefault();
+
+				hitPlayer?.AddFreezeWithStun( 25, Owner );
+
+				Delete();
+			}
 		}
 	}
 }
