@@ -1,9 +1,5 @@
 ﻿using Sandbox;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FrostFight.Weapons
 {
@@ -48,6 +44,12 @@ namespace FrostFight.Weapons
 					.Cast<FrostPlayer>().FirstOrDefault();
 
 				hitPlayer?.AddFreezeWithStun( 25, Owner );
+
+				if ( hitPlayer == null )
+				{
+					var hitParticles = Particles.Create( "particles/impact.generic.smokepuff.vpcf", Position );
+					hitParticles.SetForward( 0, (OriginPos - TargetPos).Normal );
+				}
 
 				Delete();
 			}
