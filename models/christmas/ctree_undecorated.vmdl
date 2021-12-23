@@ -93,13 +93,28 @@
 				children = 
 				[
 					{
-						_class = "PhysicsShapeBox"
+						_class = "PhysicsHullFile"
+						name = "ctree_undecorated"
 						parent_bone = ""
 						surface_prop = "default"
 						collision_prop = "default"
-						origin = [ -0.55132, 1.195018, 26.713549 ]
-						angles = [ 0.0, 0.0, 0.0 ]
-						dimensions = [ 24.29855, 20.568277, 53.708569 ]
+						recenter_on_parent_bone = false
+						offset_origin = [ 0.0, 0.0, 830.0 ]
+						offset_angles = [ 0.0, 0.0, 0.0 ]
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						filename = "models/christmas/src/ctree_undecorated.fbx"
+						import_scale = 0.05
+						faceMergeAngle = 10.0
+						maxHullVertices = 0
+						import_mode = "SingleHull"
+						optimization_algorithm = "QEM"
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
 					},
 				]
 			},
