@@ -1,6 +1,6 @@
-﻿using FrostFight.UI.Elements;
-using FrostFight.Weapons;
+﻿using FrostFight.Weapons;
 using Sandbox;
+using System.Linq;
 
 namespace FrostFight
 {
@@ -24,6 +24,7 @@ namespace FrostFight
 		public FrostPlayer( Client cl ) : this()
 		{
 			Clothing.LoadFromClient( cl );
+			Clothing.Clothing.RemoveAll( item => item.Category == Sandbox.Clothing.ClothingCategory.Hat );
 		}
 
 		public override void Respawn()
