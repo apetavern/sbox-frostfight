@@ -25,6 +25,8 @@ namespace FrostFight
 			"sounds/soundeffects/icepick/icepick_hit8.vsnd",
 			"sounds/soundeffects/icepick/icepick_hit9.vsnd",
 			"sounds/soundeffects/icepick/icepick_hit10.vsnd",
+			"sounds/soundeffects/freezegun/snowball_fire.vsnd",
+			"sounds/soundeffects/freezegun/freezegun_spray.vsnd",
 			"sounds/surfaces/snow/snow_footstep_01.vsnd",
 			"sounds/surfaces/snow/snow_footstep_02.vsnd",
 			"sounds/surfaces/snow/snow_footstep_03.vsnd",
@@ -38,7 +40,7 @@ namespace FrostFight
 			"models/weapons/freezegun/freezegun_world.vmdl",
 			"models/weapons/pickaxe/pickaxe_view.vmdl",
 			"models/weapons/pickaxe/pickaxe_world.vmdl",
-			"models/christmas/snowball.vmdl",
+			"models/christmas/snowball.vmdl"
 		};
 	}
 }
