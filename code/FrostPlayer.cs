@@ -1,6 +1,5 @@
 ﻿using FrostFight.Weapons;
 using Sandbox;
-using System.Linq;
 
 namespace FrostFight
 {
@@ -13,6 +12,7 @@ namespace FrostFight
 		public TimeSince TimeSinceLastFroze { get; set; }
 		[Net] public TimeSince TimeSinceStunned { get; set; }
 		[Net] public IceBlock IceBlock { get; set; }
+		[Net] public bool MovementDisabled { get; set; } = true;
 		public bool IsFrozen => CurrentFreezeAmount >= MaxFreezeAmount;
 		public Clothing.Container Clothing = new();
 
@@ -24,7 +24,10 @@ namespace FrostFight
 		public FrostPlayer( Client cl ) : this()
 		{
 			Clothing.LoadFromClient( cl );
-			Clothing.Clothing.RemoveAll( item => item.Category == Sandbox.Clothing.ClothingCategory.Hat );
+			Clothing.Clothing.RemoveAll(
+				item => (
+					item.Category == Sandbox.Clothing.ClothingCategory.Hat ||
+					item.Category == Sandbox.Clothing.ClothingCategory.Hair) );
 		}
 
 		public override void Respawn()
@@ -33,7 +36,7 @@ namespace FrostFight
 
 			Controller = new PlayerController();
 			Animator = new StandardPlayerAnimator();
-			Camera = new FirstPersonCamera();
+			Camera = new SpectateBlockCamera() { Target = this };
 
 			EnableAllCollisions = true;
 			EnableDrawing = true;
@@ -47,8 +50,6 @@ namespace FrostFight
 			hat.EnableHideInFirstPerson = true;
 
 			CurrentFreezeAmount = 0;
-
-			SetLoadout();
 
 			base.Respawn();
 		}
@@ -103,6 +104,7 @@ namespace FrostFight
 					Parent = this
 				};
 
+				Sound.FromEntity( "become_frozen", this );
 				Camera = new SpectateBlockCamera() { Target = this };
 			}
 
@@ -114,6 +116,13 @@ namespace FrostFight
 			CurrentFreezeAmount = 0;
 			IceBlock = null;
 
+			Camera = new FirstPersonCamera();
+		}
+
+		public void Ready()
+		{
+			SetLoadout();
+			MovementDisabled = false;
 			Camera = new FirstPersonCamera();
 		}
 

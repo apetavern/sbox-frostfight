@@ -12,6 +12,11 @@ namespace FrostFight.UI.Elements
 			{
 				return Input.Down( InputButton.Attack1 );
 			} );
+
+			BindClass( "visible", () =>
+			{
+				return !(Local.Pawn as FrostPlayer).MovementDisabled;
+			} );
 		}
 	}
 }

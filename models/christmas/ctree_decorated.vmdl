@@ -6,25 +6,6 @@
 		children = 
 		[
 			{
-				_class = "ModelModifierList"
-				children = 
-				[
-					{
-						_class = "ModelModifier_ScaleAndMirror"
-						scale = 0.05
-						mirror_x = false
-						mirror_y = false
-						mirror_z = false
-						flip_bone_forward = false
-						swap_left_and_right_bones = false
-					},
-					{
-						_class = "ModelModifier_Translate"
-						translation = [ 0.0, 0.0, 41.5 ]
-					},
-				]
-			},
-			{
 				_class = "LODGroupList"
 				children = 
 				[
@@ -115,13 +96,13 @@
 						surface_prop = "default"
 						collision_prop = "default"
 						recenter_on_parent_bone = false
-						offset_origin = [ 0.0, 0.0, 830.0 ]
+						offset_origin = [ 0.0, 0.0, 0.0 ]
 						offset_angles = [ 0.0, 0.0, 0.0 ]
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
 						filename = "models/christmas/src/ctree_undecorated.fbx"
-						import_scale = 0.05
+						import_scale = 2.0
 						faceMergeAngle = 10.0
 						maxHullVertices = 0
 						import_mode = "SingleHull"
@@ -129,7 +110,11 @@
 						import_filter = 
 						{
 							exclude_by_default = false
-							exception_list = [  ]
+							exception_list = 
+							[
+								"ctree_undecorated_lod0",
+								"ctree_undecorated_lod2",
+							]
 						}
 					},
 				]
@@ -144,7 +129,7 @@
 						filename = "models/christmas/src/ctree_decorated.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
-						import_scale = 1.0
+						import_scale = 2.0
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
@@ -164,7 +149,7 @@
 						filename = "models/christmas/src/ctree_decorated.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
-						import_scale = 1.0
+						import_scale = 2.0
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
 						align_origin_z_type = "None"
