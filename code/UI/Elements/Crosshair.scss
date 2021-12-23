@@ -31,4 +31,20 @@ Crosshair {
         transform: translate( -50% -50% );
         border-radius: 100%;
     }
+
+    .cooldown-bar {
+        position: absolute;
+        border-radius: 100%;
+        position: absolute;
+        bottom: -16px;
+        left: -50%;
+        height: 4px;
+        background-color: $accent;
+        opacity: 0;
+        transition: opacity 150ms ease;
+
+        &.visible {
+            opacity: 1;
+        }
+    }
 }
