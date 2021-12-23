@@ -188,6 +188,9 @@ namespace FrostFight
 				Players.Add( player );
 			}
 
+			// Reset glass
+			ShatterGlass.ResetGlassCommand();
+
 			Spectators.Clear();
 
 			// Set to Waiting State with reduced waiting time
