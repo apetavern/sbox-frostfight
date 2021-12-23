@@ -101,7 +101,6 @@ namespace FrostFight
 			}
 
 			CheckGameStillValid();
-
 		}
 
 		private void TickGameOver()
@@ -133,6 +132,8 @@ namespace FrostFight
 				}
 
 				player.Respawn();
+				player.Ready();
+
 				playersCount--;
 			}
 		}

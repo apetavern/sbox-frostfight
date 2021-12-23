@@ -37,7 +37,7 @@ namespace FrostFight
 
 		public void ScaleMovementSpeedsByFreeze( float amount )
 		{
-			if ( (Pawn as FrostPlayer)?.TimeSinceStunned < 3 )
+			if ( (Pawn as FrostPlayer) is null || (Pawn as FrostPlayer).TimeSinceStunned < 3 || (Pawn as FrostPlayer).MovementDisabled )
 			{
 				SprintSpeed = 0;
 				WalkSpeed = 0;
