@@ -11,7 +11,13 @@
 				[
 					{
 						_class = "DefaultMaterialGroup"
-						remaps = [  ]
+						remaps = 
+						[
+							{
+								from = "santasuit_hat.vmat"
+								to = "models/cosmetics/santahat/materials/santasuit_hat.vmat"
+							},
+						]
 						use_global_default = false
 						global_default_material = ""
 					},
