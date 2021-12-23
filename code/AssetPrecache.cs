@@ -25,6 +25,7 @@ namespace FrostFight
 			"sounds/soundeffects/icepick/icepick_hit8.vsnd",
 			"sounds/soundeffects/icepick/icepick_hit9.vsnd",
 			"sounds/soundeffects/icepick/icepick_hit10.vsnd",
+			"sounds/soundeffects/icepick/icepick_miss.vsnd",
 			"sounds/soundeffects/freezegun/snowball_fire.vsnd",
 			"sounds/soundeffects/freezegun/freezegun_spray.vsnd",
 			"sounds/surfaces/snow/snow_footstep_01.vsnd",
@@ -33,6 +34,7 @@ namespace FrostFight
 			"sounds/surfaces/snow/snow_footstep_04.vsnd",
 			"sounds/surfaces/snow/snow_footstep_05.vsnd",
 			"sounds/soundeffects/misc/become_frozen.vsnd",
+			
 
 			// Models
 			"models/cosmetics/santahat/santahat.vmdl",
