@@ -6,7 +6,7 @@ namespace FrostFight.Weapons
 	public class FreezeArea : Entity
 	{
 		public float LifeSpan = 0.5f;
-		public float FreezeTickRate = 0.25f;
+		public float FreezeTickRate = 0.17f;
 		public TimeSince TimeSinceCreated { get; set; }
 		public TimeSince TimeSinceLastTick { get; set; }
 
