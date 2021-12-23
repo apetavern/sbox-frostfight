@@ -1,0 +1,26 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	data = 
+	{
+		sounds = 
+		[
+			"sounds/soundeffects/icepick/icepick_hit1.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit2.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit3.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit4.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit5.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit6.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit7.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit8.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit9.vsnd",
+			"sounds/soundeffects/icepick/icepick_hit10.vsnd",
+		]
+		ui = false
+		volume = 1.0
+		volumerandom = 0.1
+		pitch = 1.0
+		pitchrandom = 0.1
+		distancemax = 2000.0
+		selectionmode = "3"
+	}
+}
