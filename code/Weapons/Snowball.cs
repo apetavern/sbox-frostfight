@@ -26,7 +26,7 @@ namespace FrostFight.Weapons
 			TimeSinceFired = 0;
 		}
 
-		[Event.Tick.Server]
+		[Event.Tick]
 		public void OnTick()
 		{
 			if ( OriginPos == Vector3.Zero )
