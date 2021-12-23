@@ -92,11 +92,11 @@ namespace FrostFight
 		public void AddFreezeWithStun( float amount, Entity attacker )
 		{
 			TimeSinceStunned = 0;
-			Particles.Create( "particles/stunparticle.vpcf", GetBoneTransform("head").Position + Vector3.Up * 4f);
+			Particles.Create( "particles/stunparticle.vpcf", GetBoneTransform( "head" ).Position + Vector3.Up * 4f );
 
 			Sound.FromEntity( "snowball_stun", this );
 
-			SetAnimBool( "hit", true );
+			Animator?.SetParam( "hit", true );
 
 			AddFreeze( amount, attacker );
 		}
