@@ -103,6 +103,7 @@ namespace FrostFight
 					Parent = this
 				};
 
+				Sound.FromEntity( "become_frozen", this );
 				Camera = new SpectateBlockCamera() { Target = this };
 			}
 
