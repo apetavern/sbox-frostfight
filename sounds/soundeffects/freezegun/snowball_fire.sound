@@ -4,7 +4,7 @@
 	{
 		sounds = 
 		[
-			"sounds/soundeffects/frostgun/snowball_fire.vsnd",
+			"sounds/soundeffects/freezegun/snowball_fire.vsnd",
 		]
 		ui = false
 		volume = 1.0
