@@ -12,8 +12,11 @@ namespace FrostFight
 
 		public Game()
 		{
-			if ( IsServer )
-				Hud = new Hud();
+			if ( !IsServer )
+				return;
+
+			Hud = new Hud();
+			AssetPrecache.DoPrecache();
 		}
 
 		public override void ClientJoined( Client cl )
