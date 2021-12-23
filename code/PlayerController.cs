@@ -35,6 +35,9 @@ namespace FrostFight
 		public Duck Duck;
 		public Unstuck Unstuck;
 
+		private TimeSince timeSinceJump;
+		private float minJumpDelay = 2f; // How many seconds need to pass between jumps before decay isn't applied
+
 		public void ScaleMovementSpeedsByFreeze( float amount )
 		{
 			if ( (Pawn as FrostPlayer) is null || (Pawn as FrostPlayer).TimeSinceStunned < 3 || (Pawn as FrostPlayer).MovementDisabled )
@@ -171,7 +174,8 @@ namespace FrostFight
 
 			// if ( underwater ) do underwater movement
 
-			if ( AutoJump ? Input.Down( InputButton.Jump ) : Input.Pressed( InputButton.Jump ) )
+			var player = Pawn as FrostPlayer;
+			if ( AutoJump ? Input.Down( InputButton.Jump ) : Input.Pressed( InputButton.Jump ) && player.Stamina > 30f )
 			{
 				CheckJumpButton();
 			}
@@ -207,6 +211,19 @@ namespace FrostFight
 
 			WishVelocity = WishVelocity.Normal * inSpeed;
 			WishVelocity *= GetWishSpeed();
+
+			//
+			// Wish velocity: apply jump decay
+			//
+			float startz = WishVelocity.z;
+			float jumpDecayMul = 1.0f;
+
+			if ( timeSinceJump < minJumpDelay )
+				jumpDecayMul = (timeSinceJump / minJumpDelay) * 0.5f;
+			jumpDecayMul.Clamp( 0.0f, 1.0f );
+
+			WishVelocity *= jumpDecayMul;
+			WishVelocity = WishVelocity.WithZ( startz );
 
 			Duck.PreTick();
 
@@ -291,7 +308,7 @@ namespace FrostFight
 			}
 			else
 			{
-				player.Stamina += 1f;
+				player.Stamina += 0.5f;
 				player.Stamina = player.Stamina.Clamp( 0, 100 );
 			}
 
@@ -528,8 +545,12 @@ namespace FrostFight
 			// don't jump again until released
 			//mv->m_nOldButtons |= IN_JUMP;
 
-			AddEvent( "jump" );
+			timeSinceJump = 0;
 
+			var player = Pawn as FrostPlayer;
+			player.Stamina -= 30f;
+
+			AddEvent( "jump" );
 		}
 
 		public virtual void AirMove()
