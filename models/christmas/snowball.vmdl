@@ -11,7 +11,7 @@
 				[
 					{
 						_class = "ModelModifier_ScaleAndMirror"
-						scale = 0.05
+						scale = 0.14
 						mirror_x = false
 						mirror_y = false
 						mirror_z = false
@@ -47,7 +47,7 @@
 						parent_bone = ""
 						surface_prop = "default"
 						collision_prop = "default"
-						radius = 1.109129
+						radius = 3.20913
 						center = [ 0.0, 0.0, 0.0 ]
 					},
 				]
