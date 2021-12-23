@@ -13,6 +13,8 @@ namespace FrostFight.Weapons
 		public TimeSince TimeSinceAreaCreated { get; set; }
 		public float AreaCreationInterval { get; set; } = 0.07f;
 		public Particles IceParticle { get; set; }
+		public Sound SpraySound { get; set; }
+		public bool IsSpraySoundPlaying { get; set; }
 
 		public override void Spawn()
 		{
@@ -45,6 +47,15 @@ namespace FrostFight.Weapons
 						var freezeArea = new FreezeArea() { Position = trace.EndPos, Owner = Owner };
 						TimeSinceAreaCreated = 0;
 					}
+
+					using ( Prediction.Off() )
+					{
+						if ( !IsSpraySoundPlaying )
+						{
+							SpraySound = Sound.FromEntity( "freezegun_spray", this );
+							IsSpraySoundPlaying = true;
+						}
+					}
 				}
 
 				CreateEffects();
@@ -64,6 +75,12 @@ namespace FrostFight.Weapons
 			{
 				DestroyEffects();
 
+				if ( IsServer )
+				{
+					SpraySound.Stop();
+					IsSpraySoundPlaying = false;
+				}
+
 				if ( !IsClient )
 					return;
 
@@ -80,6 +97,7 @@ namespace FrostFight.Weapons
 
 				(Owner as AnimEntity)?.SetAnimBool( "b_attack", true );
 				ViewModelEntity?.SetAnimBool( "fire_snowball", true );
+				Sound.FromEntity( "snowball_fire", this );
 
 				if ( !IsServer )
 					return;

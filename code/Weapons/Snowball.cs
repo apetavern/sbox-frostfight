@@ -19,7 +19,7 @@ namespace FrostFight.Weapons
 		{
 			base.Spawn();
 
-			SetModel( "models/christmas/snowball.vmdl_c" );
+			SetModel( "models/christmas/snowball.vmdl" );
 		}
 
 		public void FireTowards( Vector3 targetPos )

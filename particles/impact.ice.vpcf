@@ -91,7 +91,7 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 0.1
+				m_flLiteralValue = 1.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
@@ -1326,7 +1326,7 @@
 			{
 				m_nType = "PVEC_TYPE_LITERAL_COLOR"
 				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
-				m_LiteralColor = [ 0, 255, 255, 255 ]
+				m_LiteralColor = [ 255, 255, 255, 255 ]
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
 				m_nControlPoint = 0
@@ -1523,11 +1523,13 @@
 				}
 			}
 			m_bFogParticles = true
-			m_hTexture = resource:"materials/particle/spray1/spray1.vtex"
+			m_hTexture = resource:"materials/particles/ring_wave_radial.vtex"
 			m_bPerVertexLighting = true
 			m_bTintByGlobalLight = true
 			m_flAnimationRate = 1.0
 			m_nAnimationType = "ANIMATION_TYPE_FIT_LIFETIME"
+			m_bOutline = true
+			m_nColorBlendType = "PARTICLE_COLOR_BLEND_SCREEN"
 		},
 	]
 	m_Children = 
