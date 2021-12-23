@@ -9,7 +9,7 @@ namespace FrostFight.UI.Elements
 
 		public Vitals()
 		{
-			StyleSheet.Load( "/Code/UI/Elements/Vitals.scss" );
+			StyleSheet.Load( "/UI/Elements/Vitals.scss" );
 			AddChild<Stamina>();
 			freezeLevel = AddChild<FreezeLevel>();
 		}

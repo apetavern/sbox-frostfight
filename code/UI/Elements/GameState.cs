@@ -12,7 +12,7 @@ namespace FrostFight.UI.Elements
 
 		public GameState()
 		{
-			StyleSheet.Load( "/Code/UI/Elements/GameState.scss" );
+			StyleSheet.Load( "/UI/Elements/GameState.scss" );
 
 			var stateName = Add.Panel( "state-name" );
 			stateName.Add.Icon( "priority_high" );

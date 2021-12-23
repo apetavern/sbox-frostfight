@@ -15,7 +15,7 @@ namespace FrostFight.UI
 
 		public NameTags()
 		{
-			StyleSheet.Load( "/Code/UI/NameTags.scss" );
+			StyleSheet.Load( "/UI/NameTags.scss" );
 		}
 
 		public BaseNameTag CreateNameTag( Player player )

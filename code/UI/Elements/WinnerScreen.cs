@@ -9,7 +9,7 @@ namespace FrostFight.UI.Elements
 
 		public WinnerScreen()
 		{
-			StyleSheet.Load( "/Code/UI/Elements/WinnerScreen.scss" );
+			StyleSheet.Load( "/UI/Elements/WinnerScreen.scss" );
 			winningTeamLabel = Add.Label( "Winning team" );
 			Add.Panel( "center" );
 

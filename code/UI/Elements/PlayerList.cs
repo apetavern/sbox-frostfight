@@ -12,7 +12,7 @@ namespace FrostFight.UI.Elements
 
 		public PlayerList()
 		{
-			StyleSheet.Load( "/Code/UI/Elements/PlayerList.scss" );
+			StyleSheet.Load( "/UI/Elements/PlayerList.scss" );
 		}
 
 		public void Update()
