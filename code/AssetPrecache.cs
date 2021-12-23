@@ -43,6 +43,7 @@ namespace FrostFight
 			"sounds/soundeffects/snowball/snowball_stun3.vsnd",
 			"sounds/soundeffects/snowball/snowball_stun4.vsnd",
 			"sounds/soundeffects/snowball/snowball_stun5.vsnd",
+			"sounds/ambience/jingle.vsnd",
 			
 
 			// Models
