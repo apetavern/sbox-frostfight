@@ -32,6 +32,7 @@ namespace FrostFight
 			"sounds/surfaces/snow/snow_footstep_03.vsnd",
 			"sounds/surfaces/snow/snow_footstep_04.vsnd",
 			"sounds/surfaces/snow/snow_footstep_05.vsnd",
+			"sounds/soundeffects/misc/become_frozen.vsnd",
 
 			// Models
 			"models/cosmetics/santahat/santahat.vmdl",
