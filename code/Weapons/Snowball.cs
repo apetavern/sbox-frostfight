@@ -53,10 +53,8 @@ namespace FrostFight.Weapons
 				}
 				else
 				{
-					Sound.FromWorld( "snowball_hit", Position ).SetVolume(0.25f);
+					Sound.FromWorld( "snowball_hit", Position ).SetVolume( 0.25f );
 				}
-
-				
 
 				Delete();
 			}

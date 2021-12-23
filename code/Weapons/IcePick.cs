@@ -56,7 +56,13 @@ namespace FrostFight.Weapons
 		public async void DoGlassDamage( GlassShard shard, Vector3 pos, Vector3 dir )
 		{
 			await GameTask.DelaySeconds( 0.2f );
-			shard.TakeDamage( DamageInfo.FromBullet( pos, dir, 100f ) );
+
+			if ( shard.IsValid() )
+			{
+				var hitParticles = Particles.Create( "particles/impact.generic.smokepuff.vpcf", pos );
+				hitParticles.SetForward( 0, (-dir).Normal );
+				shard.TakeDamage( DamageInfo.FromBullet( pos, dir, 100f ) );
+			}
 		}
 
 		[ClientRpc]
