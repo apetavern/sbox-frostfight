@@ -11,11 +11,6 @@ namespace FrostFight.UI.Elements
 
 		public Crosshair()
 		{
-			BindClass( "active", () =>
-			{
-				return Input.Down( InputButton.Attack1 );
-			} );
-
 			BindClass( "visible", () =>
 			{
 				return !(Local.Pawn as FrostPlayer).MovementDisabled;
@@ -32,7 +27,7 @@ namespace FrostFight.UI.Elements
 				return;
 			}
 
-			float t = freezeGun.TimeSinceSecondaryAttack / 3f;
+			float t = freezeGun.TimeSinceSecondaryAttack / freezeGun.SecondaryRate;
 			t = t.Clamp( 0, 1f );
 			CooldownBar.SetClass( "visible", !t.AlmostEqual( 1 ) );
 
