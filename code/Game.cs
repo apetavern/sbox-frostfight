@@ -23,16 +23,21 @@ namespace FrostFight
 		{
 			base.ClientJoined( cl );
 
-			var player = new FrostPlayer( cl );
-			cl.Pawn = player;
+			Player player;
 
 			if ( State is GameState.Playing )
-				Spectators.Add( player );
+			{
+				player = new SpectatorPlayer();
+				Spectators.Add( player as SpectatorPlayer );
+			}
 			else
 			{
-				Players.Add( player );
-				player.Respawn();
+				player = new FrostPlayer( cl );
+				Players.Add( player as FrostPlayer );
 			}
+
+			cl.Pawn = player;
+			player.Respawn();
 		}
 
 		public override void ClientDisconnect( Client cl, NetworkDisconnectionReason reason )

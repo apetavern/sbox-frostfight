@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using FrostFight.UI;
+using Sandbox;
 using System.Collections.Generic;
 
 namespace FrostFight
@@ -21,7 +22,7 @@ namespace FrostFight
 
 		[Net] public GameState State { get; set; }
 		[Net] public IList<FrostPlayer> Players { get; set; }
-		[Net] public IList<FrostPlayer> Spectators { get; set; }
+		[Net] public IList<SpectatorPlayer> Spectators { get; set; }
 		[Net] public float WaitingTimer { get; set; } = -1;
 		[Net] public float PlayingTimer { get; set; } = -1;
 		[Net] public float GameOverTimer { get; set; } = -1;
@@ -71,6 +72,11 @@ namespace FrostFight
 				{
 					AssignRoles();
 					ChangeState( GameState.Playing );
+
+					foreach ( var player in Players )
+					{
+						Hud.SetHudState( To.Single( player ), true );
+					}
 				}
 			}
 		}
@@ -185,7 +191,14 @@ namespace FrostFight
 			// Add Spectators to Players
 			foreach ( var player in Spectators )
 			{
-				Players.Add( player );
+				// Create & set new pawn.
+				var newPawn = new FrostPlayer();
+				player.Client.Pawn = newPawn;
+
+				Players.Add( newPawn );
+
+				// Remove old pawn
+				player.Delete();
 			}
 
 			Spectators.Clear();
