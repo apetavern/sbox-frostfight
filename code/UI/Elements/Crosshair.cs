@@ -27,7 +27,7 @@ namespace FrostFight.UI.Elements
 				return;
 			}
 
-			float t = freezeGun.TimeSinceSecondaryAttack / 3f;
+			float t = freezeGun.TimeSinceSecondaryAttack / freezeGun.SecondaryRate;
 			t = t.Clamp( 0, 1f );
 			CooldownBar.SetClass( "visible", !t.AlmostEqual( 1 ) );
 
