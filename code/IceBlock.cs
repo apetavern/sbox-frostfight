@@ -20,6 +20,8 @@ namespace FrostFight
 		{
 			Health -= DamagePerHit;
 
+			UpdateModelFromHealth();
+
 			if ( Health <= 0 )
 				OnKilled();
 		}
@@ -30,11 +32,30 @@ namespace FrostFight
 			Delete();
 		}
 
+		private void UpdateModelFromHealth()
+		{
+			if ( Health <= 25 )
+			{
+				SetBodyGroup( 0, 3 );
+				return;
+			}
+
+			if ( Health <= 50 )
+			{
+				SetBodyGroup( 0, 2 );
+				return;
+			}
+
+			if ( Health <= 75 )
+			{
+				SetBodyGroup( 0, 1 );
+				return;
+			}
+		}
+
 		[Event.Tick.Server]
 		public void OnTick()
 		{
-			DebugOverlay.Text( Position + Vector3.Up * 80f, $"Block health: {Health}", Color.Red, 0 );
-
 			Rotation = Owner.Rotation;
 		}
 	}
