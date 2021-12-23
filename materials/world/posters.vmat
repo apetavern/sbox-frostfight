@@ -4,8 +4,8 @@ Layer0
 {
 	shader "projected_decals.vfx"
 
-	//---- Specular ----
-	F_SPECULAR 1
+	//---- Normal ----
+	F_NORMAL_MAP 1
 
 	//---- Ambient Occlusion ----
 	TextureAmbientOcclusion "materials/default/default_ao.tga"
@@ -19,10 +19,15 @@ Layer0
 	//---- Lighting ----
 	g_flDirectionalLightmapMinZ "0.050"
 	g_flDirectionalLightmapStrength "1.000"
-	g_flGlossiness "0.500"
 
 	//---- Metalness ----
-	TextureMetalness "materials/default/default_metal.tga"
+	TextureMetalness "[0.000000 0.000000 0.000000 0.000000]"
+
+	//---- Normal ----
+	TextureNormal "materials/snow_normal.png"
+
+	//---- Roughness ----
+	TextureRoughness "materials/default/default_rough.tga"
 
 	//---- Translucent ----
 	TextureTranslucency "textures/world/posters_trans.png"
