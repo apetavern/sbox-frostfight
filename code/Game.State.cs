@@ -26,6 +26,7 @@ namespace FrostFight
 		[Net] public float PlayingTimer { get; set; } = -1;
 		[Net] public float GameOverTimer { get; set; } = -1;
 		[Net] public Teams WinningTeam { get; set; }
+		Sound AmbienceMusic { get; set; }
 
 		[Event.Tick]
 		private void OnTick()
@@ -49,6 +50,12 @@ namespace FrostFight
 		private void ChangeState( GameState newState )
 		{
 			State = newState;
+
+			if ( newState == GameState.Playing )
+				AmbienceMusic = Sound.FromScreen( "jingle" );
+
+			if ( newState == GameState.Waiting )
+				AmbienceMusic.Stop();
 		}
 
 		private void TickWaiting()

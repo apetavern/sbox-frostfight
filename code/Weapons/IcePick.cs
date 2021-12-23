@@ -33,7 +33,7 @@ namespace FrostFight.Weapons
 			if ( trace.Entity is IceBlock block )
 				DoDamage( block, trace.EndPos );
 			else if ( trace.Entity is GlassShard shard )
-				shard.TakeDamage( DamageInfo.FromBullet( trace.EndPos, trace.Direction * 32, 100f ) );
+				DoGlassDamage( shard, trace.EndPos, trace.Direction * 32 );
 		}
 
 		public async void DoDamage( IceBlock block, Vector3 hitPos )
@@ -44,6 +44,12 @@ namespace FrostFight.Weapons
 			Sound.FromWorld( "icepick_hit", hitPos );
 
 			block.TakeDamage();
+		}
+
+		public async void DoGlassDamage( GlassShard shard, Vector3 pos, Vector3 dir )
+		{
+			await GameTask.DelaySeconds( 0.2f );
+			shard.TakeDamage( DamageInfo.FromBullet( pos, dir, 100f ) );
 		}
 
 		[ClientRpc]
