@@ -57,7 +57,7 @@ namespace FrostFight.Weapons
 
 				ViewModelEntity?.SetAnimBool( "fire", true );
 			}
-			else
+			if ( Input.Released( InputButton.Attack1 ) )
 			{
 				DestroyEffects();
 
@@ -65,6 +65,21 @@ namespace FrostFight.Weapons
 					return;
 
 				ViewModelEntity?.SetAnimBool( "fire", false );
+			}
+
+			if ( Input.Down( InputButton.Attack2 ) )
+			{
+				if ( TimeSinceSecondaryAttack < 3 )
+					return;
+
+				TimeSinceSecondaryAttack = 0;
+
+				if ( !IsServer )
+					return;
+
+				var snowball = new Snowball() { Owner = Owner };
+				snowball.Position = Owner.EyePos + Owner.EyeRot.Forward * 30f;
+				snowball.ApplyAbsoluteImpulse( Owner.EyeRot.Forward * 2000f );
 			}
 		}
 
