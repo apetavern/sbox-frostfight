@@ -14,6 +14,7 @@ namespace FrostFight.UI
 
 				RootPanel.AddChild<Crosshair>();
 				RootPanel.AddChild<CurrentWeapon>();
+				RootPanel.AddChild<WinnerScreen>();
 				RootPanel.AddChild<Vitals>();
 				RootPanel.AddChild<GameState>();
 
