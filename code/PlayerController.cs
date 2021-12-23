@@ -35,8 +35,7 @@ namespace FrostFight
 		public Duck Duck;
 		public Unstuck Unstuck;
 
-		private TimeSince timeSinceJump;
-		private float minJumpDelay = 0.75f; // How many seconds need to pass between jumps before decay isn't applied
+		private float jumpDecay = 0f;
 
 		public void ScaleMovementSpeedsByFreeze( float amount )
 		{
@@ -216,13 +215,12 @@ namespace FrostFight
 			// Wish velocity: apply jump decay
 			//
 			float startz = WishVelocity.z;
-			float jumpDecayMul = 1.0f;
 
-			if ( timeSinceJump < minJumpDelay )
-				jumpDecayMul = (timeSinceJump / minJumpDelay);
-			jumpDecayMul.Clamp( 0.0f, 1.0f );
+			jumpDecay.Clamp( 0.1f, 1.0f );
+			jumpDecay = jumpDecay.LerpTo( 1.0f, Time.Delta );
 
-			WishVelocity *= jumpDecayMul;
+			DebugOverlay.ScreenText( 0, jumpDecay.ToString() );
+			WishVelocity *= jumpDecay;
 			WishVelocity = WishVelocity.WithZ( startz );
 
 			Duck.PreTick();
@@ -545,7 +543,7 @@ namespace FrostFight
 			// don't jump again until released
 			//mv->m_nOldButtons |= IN_JUMP;
 
-			timeSinceJump = 0;
+			jumpDecay *= 0.25f;
 
 			var player = Pawn as FrostPlayer;
 			player.Stamina -= 30f;
