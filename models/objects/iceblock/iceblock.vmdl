@@ -21,18 +21,6 @@
 								from = "phong2.vmat"
 								to = "materials/snow.vmat"
 							},
-							{
-								from = "citizen_eyeao.vmat"
-								to = "models/citizen/skin/citizen_eyeao.vmat"
-							},
-							{
-								from = "citizen_eyes.vmat"
-								to = "models/citizen/skin/citizen_eyes_advanced02.vmat"
-							},
-							{
-								from = "citizen_skin.vmat"
-								to = "models/citizen/skin/citizen_skin01.vmat"
-							},
 						]
 						use_global_default = false
 						global_default_material = ""
@@ -61,6 +49,57 @@
 								"iceblock",
 								"snowaccents",
 							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "iceblock_75"
+						filename = "models/objects/iceblock/iceblock_75.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "iceblock_50"
+						filename = "models/objects/iceblock/iceblock_50.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "iceblock_25"
+						filename = "models/objects/iceblock/iceblock_25.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
 						}
 					},
 				]
@@ -95,6 +134,52 @@
 								"snowaccents",
 							]
 						}
+					},
+				]
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "destructionstates"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "100"
+								meshes = 
+								[
+									"unnamed_1",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "75"
+								meshes = 
+								[
+									"iceblock_75",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "50"
+								meshes = 
+								[
+									"iceblock_50",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "25"
+								meshes = 
+								[
+									"iceblock_25",
+								]
+							},
+						]
+						hidden_in_tools = false
 					},
 				]
 			},
