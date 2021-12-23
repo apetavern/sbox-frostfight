@@ -2,7 +2,7 @@
 
 GameState {
     position: absolute;
-    top: 50px;
+    top: 150px;
     left: 50%;
     transform: translate( -50% );
     align-items: center;
@@ -20,8 +20,7 @@ GameState {
         border: 4px solid rgba( white, 0.2 );
         backdrop-filter: $backdrop-filter;*/
         transform: skewX( -10deg );
-        padding: 20px;
-        margin: 0 5px;
+        margin: 0 10px;
         align-items: center;
         justify-content: center;
 

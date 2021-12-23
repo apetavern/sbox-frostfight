@@ -1,0 +1,41 @@
+﻿@import "/Code/UI/_Common.scss";
+
+PlayerList {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX( -50% );
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+
+    .avatar {
+        flex-grow: 1;
+        width: 64px;
+        border-radius: 100%;
+        margin: 0 4px;
+        border: 4px solid rgba( white, 0.2 );
+        aspect-ratio: 1;
+        background-size: cover;
+        background-position: center;
+        transition: all 150ms ease;
+        align-items: center;
+        justify-content: center;
+
+        &.frozen {
+            background-image-tint: $neutral;
+            border: 4px solid rgba( $accent, 0.2 );
+
+            .frozen-icon {
+                opacity: 1;
+            }
+        }
+
+        .frozen-icon {
+            transition: all 150ms ease;
+            opacity: 0;
+            font-size: 32px;
+            text-shadow: 0 0 12px $accent;
+        }
+    }
+}
