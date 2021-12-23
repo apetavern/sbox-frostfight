@@ -9,13 +9,6 @@ namespace FrostFight
 		private Angles OrbitAngles;
 		private float OrbitDistance { get; set; } = 320;
 
-		public override void Activated()
-		{
-			base.Activated();
-
-			OrbitAngles = Local.Pawn.EyeRot.Angles();
-		}
-
 		public override void Update()
 		{
 			var pawn = Target ?? Local.Pawn as AnimEntity;
