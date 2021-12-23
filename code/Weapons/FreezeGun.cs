@@ -9,6 +9,7 @@ namespace FrostFight.Weapons
 		public override string UIImage => "/textures/ui/freeze-gun.png";
 		public override string ViewModelPath => "models/weapons/freezegun/freezegun_view.vmdl";
 		public override float PrimaryRate => 0.6f;
+		public override float SecondaryRate => 1.5f;
 		public float FreezeReach = 200f;
 		public TimeSince TimeSinceAreaCreated { get; set; }
 		public float AreaCreationInterval { get; set; } = 0.07f;
@@ -90,7 +91,7 @@ namespace FrostFight.Weapons
 			// Secondary
 			if ( Input.Down( InputButton.Attack2 ) && !Input.Down( InputButton.Attack1 ) )
 			{
-				if ( TimeSinceSecondaryAttack < 3 )
+				if ( TimeSinceSecondaryAttack < SecondaryRate )
 					return;
 
 				TimeSinceSecondaryAttack = 0;
