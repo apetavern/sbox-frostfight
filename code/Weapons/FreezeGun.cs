@@ -7,7 +7,7 @@ namespace FrostFight.Weapons
 	{
 		public override string UIName => "Freeze Gun";
 		public override string UIImage => "/textures/ui/freeze-gun.png";
-		public override string ViewModelPath => "models/weapons/freezegun/freezegun_view.vmdl";//"weapons/rust_pistol/v_rust_pistol.vmdl" "models/weapons/freezegun/freezegun_view.vmdl"
+		public override string ViewModelPath => "models/weapons/freezegun/freezegun_view.vmdl";
 		public override float PrimaryRate => 0.6f;
 		public float FreezeReach = 200f;
 		public TimeSince TimeSinceAreaCreated { get; set; }
@@ -28,6 +28,7 @@ namespace FrostFight.Weapons
 				Reload();
 			}
 
+			// Primary
 			if ( Input.Down( InputButton.Attack1 ) )
 			{
 				TimeSincePrimaryAttack = 0;
@@ -57,6 +58,8 @@ namespace FrostFight.Weapons
 
 				ViewModelEntity?.SetAnimBool( "fire", true );
 			}
+
+			// Primary release
 			if ( Input.Released( InputButton.Attack1 ) )
 			{
 				DestroyEffects();
@@ -67,6 +70,7 @@ namespace FrostFight.Weapons
 				ViewModelEntity?.SetAnimBool( "fire", false );
 			}
 
+			// Secondary
 			if ( Input.Down( InputButton.Attack2 ) )
 			{
 				if ( TimeSinceSecondaryAttack < 3 )
