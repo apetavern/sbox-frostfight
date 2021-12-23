@@ -119,6 +119,7 @@ namespace FrostFight
 		public void ClearFreeze()
 		{
 			CurrentFreezeAmount = 0;
+			IceBlock?.Delete();
 			IceBlock = null;
 
 			Camera = new FirstPersonCamera();

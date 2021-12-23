@@ -180,6 +180,7 @@ namespace FrostFight
 			{
 				Players.Add( player );
 			}
+
 			Spectators.Clear();
 
 			// Set to Waiting State with reduced waiting time
