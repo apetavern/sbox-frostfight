@@ -39,6 +39,7 @@ namespace FrostFight.Weapons
 			await GameTask.DelaySeconds( 0.2f );
 
 			ImpactEffects( hitPos );
+			Sound.FromWorld( "icepick_hit", hitPos );
 
 			block.TakeDamage();
 		}
