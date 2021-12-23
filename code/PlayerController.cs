@@ -37,6 +37,15 @@ namespace FrostFight
 
 		public void ScaleMovementSpeedsByFreeze( float amount )
 		{
+			if ( (Pawn as FrostPlayer).TimeSinceStunned < 3 )
+			{
+				SprintSpeed = 0;
+				WalkSpeed = 0;
+				DefaultSpeed = 0;
+
+				return;
+			}
+
 			SprintSpeed = RegularSprintSpeed - (RegularSprintSpeed / 80) * amount;
 			WalkSpeed = RegularWalkSpeed - (RegularWalkSpeed / 80) * amount;
 			DefaultSpeed = RegularSpeed - (RegularSpeed / 80) * amount;

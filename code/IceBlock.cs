@@ -34,6 +34,8 @@ namespace FrostFight
 		public void OnTick()
 		{
 			DebugOverlay.Text( Position + Vector3.Up * 80f, $"Block health: {Health}", Color.Red, 0 );
+
+			Rotation = Owner.Rotation;
 		}
 	}
 }

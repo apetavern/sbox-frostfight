@@ -11,6 +11,7 @@ namespace FrostFight
 		[Net] public float CurrentFreezeAmount { get; private set; }
 		[Net] public float Stamina { get; set; } = 100;
 		public TimeSince TimeSinceLastFroze { get; set; }
+		[Net] public TimeSince TimeSinceStunned { get; set; }
 		[Net] public IceBlock IceBlock { get; set; }
 		public bool IsFrozen => CurrentFreezeAmount >= MaxFreezeAmount;
 
@@ -67,7 +68,12 @@ namespace FrostFight
 
 			TickPlayerUse();
 			SimulateActiveChild( cl, ActiveChild );
+		}
 
+		public void AddFreezeWithStun( float amount, Entity attacker )
+		{
+			TimeSinceStunned = 0;
+			AddFreeze( amount, attacker );
 		}
 
 		public void AddFreeze( float amount, Entity attacker )
