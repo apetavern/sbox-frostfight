@@ -88,7 +88,7 @@ namespace FrostFight.Weapons
 			}
 
 			// Secondary
-			if ( Input.Down( InputButton.Attack2 ) )
+			if ( Input.Down( InputButton.Attack2 ) && !Input.Down( InputButton.Attack1 ) )
 			{
 				if ( TimeSinceSecondaryAttack < 3 )
 					return;
