@@ -219,7 +219,6 @@ namespace FrostFight
 			jumpDecay.Clamp( 0.1f, 1.0f );
 			jumpDecay = jumpDecay.LerpTo( 1.0f, Time.Delta );
 
-			DebugOverlay.ScreenText( 0, jumpDecay.ToString() );
 			WishVelocity *= jumpDecay;
 			WishVelocity = WishVelocity.WithZ( startz );
 
