@@ -34,6 +34,10 @@ namespace FrostFight
 			"sounds/surfaces/snow/snow_footstep_04.vsnd",
 			"sounds/surfaces/snow/snow_footstep_05.vsnd",
 			"sounds/soundeffects/misc/become_frozen.vsnd",
+			"sounds/soundeffects/snowball/snowball_hit1.vsnd",
+			"sounds/soundeffects/snowball/snowball_hit2.vsnd",
+			"sounds/soundeffects/snowball/snowball_hit3.vsnd",
+			"sounds/soundeffects/snowball/snowball_hit4.vsnd",
 			
 
 			// Models

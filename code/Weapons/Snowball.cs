@@ -51,6 +51,8 @@ namespace FrostFight.Weapons
 					hitParticles.SetForward( 0, (OriginPos - TargetPos).Normal );
 				}
 
+				Sound.FromWorld( "snowball_hit", Position );
+
 				Delete();
 			}
 		}
