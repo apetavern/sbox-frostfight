@@ -36,7 +36,7 @@ namespace FrostFight
 		public Unstuck Unstuck;
 
 		private TimeSince timeSinceJump;
-		private float minJumpDelay = 2f; // How many seconds need to pass between jumps before decay isn't applied
+		private float minJumpDelay = 0.25f; // How many seconds need to pass between jumps before decay isn't applied
 
 		public void ScaleMovementSpeedsByFreeze( float amount )
 		{
@@ -219,7 +219,7 @@ namespace FrostFight
 			float jumpDecayMul = 1.0f;
 
 			if ( timeSinceJump < minJumpDelay )
-				jumpDecayMul = (timeSinceJump / minJumpDelay) * 0.5f;
+				jumpDecayMul = (timeSinceJump / minJumpDelay);
 			jumpDecayMul.Clamp( 0.0f, 1.0f );
 
 			WishVelocity *= jumpDecayMul;
