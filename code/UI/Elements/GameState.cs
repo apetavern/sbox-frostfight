@@ -40,7 +40,7 @@ namespace FrostFight.UI.Elements
 					stateName = "Playing";
 					break;
 				case Game.GameState.GameOver:
-					stateTime = 0;
+					stateTime = Game.Instance.GameOverTimer;
 					stateName = "Game over";
 					break;
 			}
