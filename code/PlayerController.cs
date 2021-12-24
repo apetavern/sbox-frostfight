@@ -215,7 +215,7 @@ namespace FrostFight
 			// Wish velocity: multiply if we're freezer
 			//
 			if ( player.IsFreezer )
-				WishVelocity *= 1.25f;
+				WishVelocity *= 1.1f;
 
 			//
 			// Wish velocity: apply jump decay
