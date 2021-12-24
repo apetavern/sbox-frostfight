@@ -68,7 +68,7 @@ namespace FrostFight
 
 			if ( WaitingTimer <= 0 )
 			{
-				if ( Client.All.Count >= 4 )
+				if ( Client.All.Count >= 3 )
 				{
 					AssignRoles();
 					ChangeState( GameState.Playing );
