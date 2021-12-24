@@ -5,9 +5,9 @@ namespace FrostFight
 	[Library]
 	public partial class PlayerController : BasePlayerController
 	{
-		float RegularSprintSpeed = 320f;
-		float RegularWalkSpeed = 150f;
-		float RegularSpeed = 150f;
+		[Net] float RegularSprintSpeed { get; set; } = 320f;
+		[Net] float RegularWalkSpeed { get; set; } = 150f;
+		[Net] float RegularSpeed { get; set; } = 150f;
 
 		[Net] public float SprintSpeed { get; set; } = 320.0f;
 		[Net] public float WalkSpeed { get; set; } = 150.0f;
@@ -34,8 +34,6 @@ namespace FrostFight
 
 		public Duck Duck;
 		public Unstuck Unstuck;
-
-		private float jumpDecay = 0f;
 
 		public void ScaleMovementSpeedsByFreeze( float amount )
 		{
@@ -216,17 +214,6 @@ namespace FrostFight
 			//
 			if ( player.IsFreezer )
 				WishVelocity *= 1.1f;
-
-			//
-			// Wish velocity: apply jump decay
-			//
-			float startz = WishVelocity.z;
-
-			jumpDecay.Clamp( 0.1f, 1.0f );
-			jumpDecay = jumpDecay.LerpTo( 1.0f, Time.Delta );
-
-			WishVelocity *= jumpDecay;
-			WishVelocity = WishVelocity.WithZ( startz );
 
 			Duck.PreTick();
 
@@ -547,8 +534,6 @@ namespace FrostFight
 
 			// don't jump again until released
 			//mv->m_nOldButtons |= IN_JUMP;
-
-			jumpDecay *= 0.25f;
 
 			var player = Pawn as FrostPlayer;
 			player.Stamina -= 30f;
