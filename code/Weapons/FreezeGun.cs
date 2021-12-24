@@ -112,6 +112,18 @@ namespace FrostFight.Weapons
 			}
 		}
 
+		public override void ActiveEnd( Entity ent, bool dropped )
+		{
+			base.ActiveEnd( ent, dropped );
+			SpraySound.Stop();
+		}
+
+		protected override void OnDestroy()
+		{
+			base.OnDestroy();
+			SpraySound.Stop();
+		}
+
 		[ClientRpc]
 		public void CreateEffects()
 		{
