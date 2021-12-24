@@ -23,7 +23,10 @@ namespace FrostFight.UI.Elements
 		{
 			base.Tick();
 
-			winningTeamLabel.Text = $"{Game.Instance.WinningTeam} win!";
+			if ( Game.Instance.WinningTeam == Game.Teams.None )
+				winningTeamLabel.Text = $"Tie!";
+			else
+				winningTeamLabel.Text = $"{Game.Instance.WinningTeam} win!";
 		}
 	}
 }
