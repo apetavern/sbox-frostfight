@@ -186,6 +186,8 @@ namespace FrostFight
 				player.ClearFreeze();
 				player.IsFreezer = false;
 				player.Stamina = 100;
+
+				player.Inventory.DeleteContents();
 			}
 
 			// Add Spectators to Players

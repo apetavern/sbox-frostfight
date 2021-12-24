@@ -18,6 +18,16 @@ namespace FrostFight.Weapons
 			SetModel( "models/weapons/pickaxe/pickaxe_world.vmdl" );
 		}
 
+		public override bool CanPrimaryAttack()
+		{
+			if ( !Owner.IsValid() || !Input.Down( InputButton.Attack1 ) || (Owner as FrostPlayer)?.TimeSinceStunned < 3 ) return false;
+
+			var rate = PrimaryRate;
+			if ( rate <= 0 ) return true;
+
+			return TimeSincePrimaryAttack > (1 / rate);
+		}
+
 		public override void AttackPrimary()
 		{
 			base.AttackPrimary();
