@@ -37,6 +37,9 @@ namespace FrostFight.Weapons
 
 			Position = Vector3.Lerp( OriginPos, TargetPos, currPos );
 
+			if ( !IsServer )
+				return;
+
 			if ( Position.IsNearlyEqual( TargetPos ) )
 			{
 				var hitPlayer = Physics.GetEntitiesInSphere( Position, 5f )
