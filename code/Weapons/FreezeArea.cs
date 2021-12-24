@@ -27,7 +27,7 @@ namespace FrostFight.Weapons
 
 			if ( TimeSinceLastTick > FreezeTickRate )
 			{
-				var hits = Physics.GetEntitiesInSphere( Position, 10f ).Where( ent => ent is FrostPlayer fPlayer && !fPlayer.IsFreezer ).Cast<FrostPlayer>();
+				var hits = Physics.GetEntitiesInSphere( Position, 12f ).Where( ent => ent is FrostPlayer fPlayer && !fPlayer.IsFreezer ).Cast<FrostPlayer>();
 				if ( hits.Any() )
 				{
 					hits.ToList().ForEach( ent => ent.AddFreeze( .25f, Owner ) );
