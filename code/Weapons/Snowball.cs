@@ -8,7 +8,7 @@ namespace FrostFight.Weapons
 		private Vector3 OriginPos { get; set; }
 		private Vector3 TargetPos { get; set; }
 		private float Distance { get; set; }
-		private float Speed { get; set; } = 550f;
+		private float Speed { get; set; } = 750f;
 		private TimeSince TimeSinceFired { get; set; }
 
 		public override void Spawn()
