@@ -131,7 +131,7 @@ namespace FrostFight
 
 		private void AssignRoles()
 		{
-			var freezersCount = MathX.CeilToInt( Players.Count * 0.30f );
+			var freezersCount = MathX.CeilToInt( Players.Count * 0.25f );
 			var playersCount = Players.Count;
 
 			foreach ( var player in Players )
